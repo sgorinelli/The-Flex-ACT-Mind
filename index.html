@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Flex Mind | 5-Week Wellbeing Program</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Creepster&family=Comic+Neue:wght@700&family=Courier+Prime&display=swap" rel="stylesheet">
+    <!-- Imported highly distinct fonts for the Chessboard exercise -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Creepster&family=Comic+Neue:wght@700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -59,7 +60,7 @@
         textarea, input[type="text"], select { width: 100%; padding: 1.2rem; border: 2px solid var(--border); border-radius: 12px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; margin-bottom: 1.5rem; transition: border-color 0.2s; background: var(--surface); color: var(--text-main); }
         textarea:focus, input[type="text"]:focus, select:focus { outline: none; border-color: var(--primary-light); box-shadow: 0 0 0 4px rgba(74, 124, 128, 0.1); }
         .custom-input { display: none; margin-top: -1rem; background: #fdfdfd; border-style: dashed; }
-        input[type="range"] { width: 100%; accent-color: var(--accent); margin-bottom: 1rem; }
+        input[type="range"] { width: 100%; accent-color: var(--accent); margin-bottom: 1rem; cursor: pointer; }
 
         /* Checklists & Grids */
         .check-list-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-color); padding: 1.2rem 1.5rem; border-radius: 12px; margin-bottom: 0.8rem; border: 1px solid var(--border); }
@@ -96,10 +97,10 @@
         .chess-panel { padding: 1.5rem; border-radius: 12px; border: 2px solid; }
         .chess-white { background: #fff; border-color: #ddd; color: #333; }
         .chess-black { background: #222; border-color: #000; color: #fff; }
-        .chess-display { min-height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; margin: 1.5rem 0; font-size: 20px; transition: all 0.3s; padding: 1rem; word-break: break-word; }
+        .chess-display { min-height: 120px; display: flex; align-items: center; justify-content: center; text-align: center; margin: 1.5rem 0; font-size: 20px; transition: all 0.3s; padding: 1rem; word-break: break-word; line-height: 1.2; }
         .control-group { margin-bottom: 1rem; }
         .control-group label { font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 0.3rem; }
-        .chess-panel select, .chess-panel input[type="range"] { width: 100%; margin-bottom: 0; padding: 0.5rem; color: #333; background: white; }
+        .chess-panel select, .chess-panel input[type="range"] { width: 100%; margin-bottom: 0; padding: 0.5rem; background: white; color: #333; border-radius: 8px;}
 
         /* Defusion Flashcards */
         .flashcard-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2.5rem 0; }
@@ -108,7 +109,7 @@
         .flashcard.open .content { display: block; animation: fadeIn 0.3s; }
         .flashcard.open { background: var(--surface); box-shadow: var(--shadow-md); border-color: var(--primary); }
 
-        /* Week 5: Struggle Switch & Dial */
+        /* Week 5: Struggle Switch & Interactive Dial */
         .switch-container { display: flex; gap: 2rem; margin: 3rem 0; padding: 2.5rem; background: #222; color: white; border-radius: 16px; align-items: center;}
         .switch { position: relative; display: inline-block; width: 80px; height: 44px; flex-shrink: 0;}
         .switch input { opacity: 0; width: 0; height: 0; }
@@ -118,15 +119,23 @@
         input:checked + .slider:before { transform: translateX(36px); }
         #switch-status { font-weight: 700; color: var(--success); margin-bottom: 0.5rem; letter-spacing: 1px;}
         
-        .dial-box { background: var(--accent-light); padding: 2rem; border-radius: 12px; text-align: center; border: 2px solid var(--accent); margin-bottom: 2rem; }
-        .dial-value-display { font-size: 3rem; font-weight: bold; color: var(--accent); font-family: 'Lora'; line-height: 1; margin: 1rem 0; }
+        /* Custom Interactive Dial */
+        .dial-box { background: var(--accent-light); padding: 3rem 2rem; border-radius: 12px; text-align: center; border: 2px solid var(--accent); margin-bottom: 2rem; display: flex; flex-direction: column; align-items: center; }
+        .dial-interaction-area { width: 180px; height: 180px; border-radius: 50%; background: #eef2f3; border: 6px solid #d1d5db; position: relative; cursor: grab; box-shadow: inset 0 4px 10px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; user-select: none; }
+        .dial-interaction-area:active { cursor: grabbing; }
+        .willingness-knob { width: 130px; height: 130px; border-radius: 50%; background: var(--surface); box-shadow: 0 4px 15px rgba(0,0,0,0.2); position: absolute; display: flex; justify-content: center; padding-top: 12px; transition: transform 0.05s ease-out; }
+        .knob-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+        .dial-value-display { font-size: 3.5rem; font-weight: bold; color: var(--accent); font-family: 'Lora'; line-height: 1; margin: 0.5rem 0; }
+        .dial-labels { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+        .dial-label-0 { position: absolute; bottom: 10px; left: 10px; font-weight: bold; color: #666; }
+        .dial-label-10 { position: absolute; bottom: 10px; right: 10px; font-weight: bold; color: #666; }
 
         /* Double Standard Container */
         .double-standard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0; }
-        .ds-col { background: var(--bg-color); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); }
+        .ds-col { background: var(--bg-color); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
 
         /* Buttons */
-        .btn-primary { display: block; width: 100%; background: var(--primary); color: white; border: none; padding: 1.2rem; font-size: 1.2rem; font-weight: 700; border-radius: 12px; cursor: pointer; margin-top: 4rem; box-shadow: var(--shadow-sm); }
+        .btn-primary { display: block; width: 100%; background: var(--primary); color: white; border: none; padding: 1.2rem; font-size: 1.2rem; font-weight: 700; border-radius: 12px; cursor: pointer; margin-top: 4rem; box-shadow: var(--shadow-sm); transition: transform 0.2s, background 0.2s; }
         .btn-primary:hover { background: var(--primary-light); transform: translateY(-2px); }
         .save-indicator { position: fixed; bottom: 20px; right: 20px; background: var(--success); color: white; padding: 0.8rem 2rem; border-radius: 30px; font-weight: 600; opacity: 0; transition: opacity 0.3s; z-index: 1000; }
 
@@ -148,10 +157,12 @@
 
     <div class="container">
         <aside class="sidebar" id="nav-sidebar">
-            </aside>
+            <!-- Navigation generated by JS -->
+        </aside>
 
         <main class="content-area">
             
+            <!-- MODULE 0: INTRO -->
             <section id="mod-0" class="module active">
                 <h2>Welcome to Psychological Flexibility</h2>
                 <p>Have you ever felt like you are fighting a war inside your own mind? Trying to forcefully "think positive," eliminate anxiety, or stop feeling sad? It takes a massive amount of energy, doesn't it?</p>
@@ -193,6 +204,7 @@
                 <button class="btn-primary" onclick="completeModule(0)">Begin Week 1: Values</button>
             </section>
 
+            <!-- MODULE 1: VALUES -->
             <section id="mod-1" class="module">
                 <h2>Week 1: Discovering Your Compass</h2>
                 <p>Before we can navigate the storms of the mind, we need to know where we are sailing. In ACT, we differentiate heavily between <strong>Goals</strong>, <strong>Rules</strong>, and <strong>Values</strong>.</p>
@@ -218,8 +230,15 @@
                 <textarea id="w1-q1" rows="4" placeholder="Based on the audio, what words or qualities do you most deeply hope the people in your life associate with you?"></textarea>
 
                 <h3>Exercise 3: The Role Model Reflection</h3>
-                <p>Sometimes our own values are obscured by our self-doubt, but they are incredibly obvious when we look at people we admire. Think of someone you deeply respect (a friend, a historical figure, a fictional character).</p>
-                <textarea id="w1-rolemodel" rows="4" placeholder="I admire [Person's Name] because they embody the qualities of..."></textarea>
+                <p>Sometimes our own values are obscured by our self-doubt, but they are incredibly obvious when we look at people we admire. Think of someone you deeply respect (a friend, a historical figure, a fictional character). Instead of a long paragraph, break down the specific qualities they embody below.</p>
+                <div style="background:var(--bg-color); border:1px solid var(--border); padding:1.5rem; border-radius:12px; margin-bottom:2rem;">
+                    <label style="font-weight:600; display:block; margin-bottom:0.5rem;">I admire [Person's Name] because they embody...</label>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem;">
+                        <input type="text" id="w1-rm-q1" placeholder="Quality 1 (e.g., Courage)">
+                        <input type="text" id="w1-rm-q2" placeholder="Quality 2 (e.g., Compassion)">
+                        <input type="text" id="w1-rm-q3" placeholder="Quality 3 (e.g., Honesty)">
+                    </div>
+                </div>
                 <p><em>Note: The qualities you just wrote down are not just facts about them—they are reflections of your own core values.</em></p>
 
                 <h3>Exercise 4: The Valued Living Domains</h3>
@@ -231,7 +250,10 @@
                         <option value="" disabled selected>Select a core value...</option>
                         <option>Industriousness & Hard Work</option>
                         <option>Creativity & Innovation</option>
+                        <option>Leadership & Guidance</option>
                         <option>Service & Helping Others</option>
+                        <option>Curiosity & Continuous Learning</option>
+                        <option>Reliability & Consistency</option>
                     </select>
                     <textarea id="w1-d1-text" rows="2" placeholder="One small way to bring this value to work/study this week..."></textarea>
                 </div>
@@ -242,18 +264,23 @@
                         <option value="" disabled selected>Select a core value...</option>
                         <option>Compassion & Empathy</option>
                         <option>Vulnerability & Openness</option>
-                        <option>Humor & Play</option>
+                        <option>Loyalty & Support</option>
+                        <option>Humor, Play & Fun</option>
+                        <option>Patience & Understanding</option>
+                        <option>Respect & Healthy Boundaries</option>
                     </select>
                     <textarea id="w1-d2-text" rows="2" placeholder="One small way to bring this value to a relationship this week..."></textarea>
                 </div>
                 
                 <div style="background: var(--bg-color); padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
-                    <h4 style="margin-top:0;">🌱 Personal Health</h4>
+                    <h4 style="margin-top:0;">🌱 Personal Health & Growth</h4>
                     <select id="w1-d3-select">
                         <option value="" disabled selected>Select a core value...</option>
                         <option>Vitality & Physical Care</option>
+                        <option>Spirituality & Connection</option>
                         <option>Self-Compassion & Kindness</option>
                         <option>Courage & Challenge</option>
+                        <option>Mindfulness & Presence</option>
                     </select>
                     <textarea id="w1-d3-text" rows="2" placeholder="One small way to bring this value to your health this week..."></textarea>
                 </div>
@@ -261,6 +288,7 @@
                 <button class="btn-primary" onclick="completeModule(1)">Save Progress & Unlock Week 2</button>
             </section>
 
+            <!-- MODULE 2: COMMITTED ACTION -->
             <section id="mod-2" class="module">
                 <h2>Week 2: Taking Committed Action</h2>
                 <p>Last week, we calibrated your compass. This week, we start walking. <strong>Committed Action</strong> means taking effective steps guided by your values, even when it brings up psychological discomfort.</p>
@@ -340,6 +368,7 @@
                 <button class="btn-primary" onclick="completeModule(2)">Save Progress & Unlock Week 3</button>
             </section>
 
+            <!-- MODULE 3: PRESENT MOMENT -->
             <section id="mod-3" class="module">
                 <h2>Week 3: Waking Up to the Here and Now</h2>
                 <p>Our minds are incredible time-traveling machines. But they rarely travel to pleasant places.</p>
@@ -398,23 +427,26 @@
                 <button class="btn-primary" onclick="completeModule(3)">Save Progress & Unlock Week 4</button>
             </section>
 
+            <!-- MODULE 4: DEFUSION (UNHOOKING) -->
             <section id="mod-4" class="module">
                 <h2>Week 4: Untangling from Thoughts</h2>
-                <p>In ACT, we talk about being <strong>"Hooked"</strong> (Cognitive Fusion). When hooked, we believe our thoughts are absolute truths. We view the world <em>from</em> our thoughts.</p>
-                <p><strong>"Unhooking"</strong> (Defusion) is stepping back. We recognize that thoughts are just words, sounds, and pictures popping up in our heads.</p>
+                <p>The human mind is a problem-solving machine designed to keep us alive. It evolved to constantly look for danger. But in the modern world, it treats thoughts like "I might fail this interview" with the exact same physiological alarm as "There is a tiger outside."</p>
+                
+                <p><strong>Cognitive Fusion (Being Hooked)</strong> is when we are tangled up in our thoughts. We believe they are absolute truths, commands we must obey, or realities we are trapped in. We view the world <em>from</em> our thoughts.</p>
+                <p><strong>Cognitive Defusion (Unhooking)</strong> is stepping back. It’s looking <em>at</em> thoughts rather than looking <em>from</em> them. We recognize that thoughts are just words, sounds, and pictures popping up in our heads.</p>
 
                 <div class="concept-box">
-                    <h4>Core Concept: Perspective-Taking</h4>
-                    <p>Think of a chessboard. The white pieces are positive thoughts; black pieces are negative thoughts. Most of our lives, we fight on the board, trying to make white defeat black.</p>
+                    <h4>Core Concept: Perspective-Taking (The Observer Self)</h4>
+                    <p>If you are not your thoughts, who are you? You are the observer of the thoughts. Think of a chessboard. The white pieces are your positive thoughts. The black pieces are your negative thoughts. Most of our lives, we fight on the board, trying to make the white pieces defeat the black pieces.</p>
                     <p>But you are not the pieces. <strong>You are the board.</strong> The board doesn't care who wins; it simply provides the space for the game to happen. You are the space where your thoughts occur.</p>
                 </div>
 
                 <h3>Exercise 1: Unhooking Playground</h3>
-                <p>Click the flashcards below to explore unhooking techniques.</p>
+                <p>Unhooking often feels playful, sometimes even silly. By changing the context of a thought, we strip away its emotional power without trying to change its content. Click the flashcards below.</p>
                 <div class="flashcard-container">
                     <div class="flashcard" onclick="this.classList.toggle('open')">
                         <h4>1. Name the Story</h4>
-                        <div class="content">"Ah, here goes the 'I'm an Imposter' story again." Acknowledge it like an old movie.</div>
+                        <div class="content">Our minds tell the same stories repeatedly. "Ah, here goes the 'I'm an Imposter' story again." Acknowledge it like an old movie.</div>
                     </div>
                     <div class="flashcard" onclick="this.classList.toggle('open')">
                         <h4>2. "I am having the thought..."</h4>
@@ -424,43 +456,69 @@
                         <h4>3. The Silly Voice</h4>
                         <div class="content">Take a harsh thought and say it in a cartoon voice. Notice how it loses its threat level.</div>
                     </div>
+                    <div class="flashcard" onclick="this.classList.toggle('open')">
+                        <h4>4. Sing it to "Happy Birthday"</h4>
+                        <div class="content">Take your painful thought ("Nobody likes me") and mentally sing it to the tune of Happy Birthday. It breaks the illusion of a serious threat.</div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('open')">
+                        <h4>5. Thank Your Mind</h4>
+                        <div class="content">When your mind gives you a terrible worst-case scenario, say, "Thank you, mind! I know you're just trying to protect me, but I've got this."</div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('open')">
+                        <h4>6. The Computer Screen</h4>
+                        <div class="content">Visualize your negative thought written on a screen. Imagine changing the font to Comic Sans, changing the color to neon pink, and shrinking it.</div>
+                    </div>
                 </div>
 
                 <h3>Exercise 2: The Chessboard Editor</h3>
-                <p>To prove that thoughts are just constructed objects (not reality), let's manipulate them. Enter a positive thought and a negative thought, then use the controls to change their appearance.</p>
+                <p>To prove that thoughts are just constructed objects (not reality), let's manipulate them. Enter a positive thought and a negative thought, then use the controls to alter their size, font, and opacity.</p>
 
                 <div class="chess-editor">
+                    <!-- White Piece -->
                     <div class="chess-panel chess-white">
                         <h4 style="color:#333; margin-top:0;">The White Piece (Positive)</h4>
-                        <input type="text" id="chess-white-input" placeholder="e.g., I am capable..." oninput="updateChess('white')" style="background:#f5f5f5;">
+                        <input type="text" id="chess-white-input" placeholder="e.g., I am capable..." oninput="updateChess('white')" style="background:#f5f5f5; border-color:#ccc;">
                         <div class="chess-display" id="chess-white-disp">I am capable</div>
                         
                         <div class="control-group">
                             <label>Font Style</label>
                             <select id="chess-white-font" onchange="updateChess('white')">
-                                <option value="'Outfit', sans-serif">Modern</option>
+                                <option value="'Outfit', sans-serif">Modern (Outfit)</option>
+                                <option value="'Courier Prime', monospace">Typewriter</option>
                                 <option value="'Comic Neue', cursive">Comic</option>
                                 <option value="'Creepster', cursive">Spooky</option>
+                                <option value="Impact, sans-serif">Impact</option>
                             </select>
                         </div>
                         <div class="control-group">
                             <label>Size</label>
-                            <input type="range" id="chess-white-size" min="10" max="40" value="20" oninput="updateChess('white')">
+                            <input type="range" id="chess-white-size" min="10" max="45" value="24" oninput="updateChess('white')">
+                        </div>
+                        <div class="control-group">
+                            <label>Fade Out (Opacity)</label>
+                            <input type="range" id="chess-white-opac" min="10" max="100" value="100" oninput="updateChess('white')">
                         </div>
                     </div>
 
+                    <!-- Black Piece -->
                     <div class="chess-panel chess-black">
                         <h4 style="color:#fff; margin-top:0;">The Black Piece (Negative)</h4>
-                        <input type="text" id="chess-black-input" placeholder="e.g., I am going to fail..." oninput="updateChess('black')" style="background:#444; color:white;">
+                        <input type="text" id="chess-black-input" placeholder="e.g., I am going to fail..." oninput="updateChess('black')" style="background:#444; color:white; border-color:#666;">
                         <div class="chess-display" id="chess-black-disp">I am going to fail</div>
                         
                         <div class="control-group">
                             <label style="color:#ccc;">Font Style</label>
                             <select id="chess-black-font" onchange="updateChess('black')">
-                                <option value="'Outfit', sans-serif">Modern</option>
-                                <option value="'Comic Neue', cursive">Comic (Make it silly)</option>
+                                <option value="'Outfit', sans-serif">Modern (Outfit)</option>
                                 <option value="'Courier Prime', monospace">Typewriter</option>
+                                <option value="'Comic Neue', cursive">Comic</option>
+                                <option value="'Creepster', cursive">Spooky</option>
+                                <option value="Impact, sans-serif">Impact</option>
                             </select>
+                        </div>
+                        <div class="control-group">
+                            <label style="color:#ccc;">Size</label>
+                            <input type="range" id="chess-black-size" min="10" max="45" value="24" oninput="updateChess('black')">
                         </div>
                         <div class="control-group">
                             <label style="color:#ccc;">Fade Out (Opacity)</label>
@@ -481,15 +539,16 @@
                 <button class="btn-primary" onclick="completeModule(4)">Save Progress & Unlock Week 5</button>
             </section>
 
+            <!-- MODULE 5: ACCEPTANCE -->
             <section id="mod-5" class="module">
                 <h2>Week 5: Acceptance & Self-Compassion</h2>
                 <div class="concept-box">
                     <h4>Core Concept: Experiential Avoidance</h4>
-                    <p>Much of our suffering comes from attempts to push away sadness or anxiety. We use distractions to avoid feeling bad. But running from pain creates a second layer of suffering. Acceptance is turning toward the pain.</p>
+                    <p>Much of our suffering comes from Experiential Avoidance—our desperate attempts to push away sadness, anxiety, or grief. We use alcohol, endless scrolling, isolation, or overworking to avoid feeling bad. But running from pain just creates a second layer of suffering: the suffering of the struggle itself. Acceptance is the exact opposite of avoidance. It is turning toward the pain.</p>
                 </div>
 
                 <h3>The Struggle Switch</h3>
-                <p>Interact with the switch below.</p>
+                <p>Dr. Russ Harris uses the metaphor of the Struggle Switch to explain Clean vs. Dirty pain. Interact with the switch below.</p>
                 <div class="switch-container">
                     <label class="switch">
                         <input type="checkbox" id="struggle-switch" checked onchange="toggleStruggle()">
@@ -503,64 +562,79 @@
 
                 <h3>The Willingness Dial</h3>
                 <p>Once you turn the struggle switch off, you can begin to turn the Willingness Dial up. Willingness means: "How open am I to experiencing this feeling right now, in order to live my values?"</p>
+                
                 <div class="dial-box">
-                    <input type="range" id="willingness-dial" min="0" max="10" value="0" oninput="updateDial()">
+                    <!-- Interactive Visual Dial -->
+                    <div class="dial-interaction-area" id="dial-interaction-area">
+                        <div class="dial-labels">
+                            <div class="dial-label-0">0</div>
+                            <div class="dial-label-10">10</div>
+                        </div>
+                        <div class="willingness-knob" id="willingness-knob" style="transform: rotate(-135deg);">
+                            <div class="knob-dot"></div>
+                        </div>
+                    </div>
+                    
                     <div class="dial-value-display" id="dial-val-text">0</div>
-                    <p id="dial-desc" style="font-weight:600; color:var(--text-main);">I am completely shut down to this feeling.</p>
+                    <p id="dial-desc" style="font-weight:600; color:var(--text-main); font-size: 1.2rem; margin-top: 0.5rem;">I am completely shut down to this feeling.</p>
+                    <input type="hidden" id="willingness-dial-hidden" value="0">
                 </div>
+                
                 <textarea id="w5-dial-text" rows="2" placeholder="What would turning the dial up by just +1 look like right now?"></textarea>
 
                 <h3>Exercise 1: Physicalizing the Emotion</h3>
-                <p>Think of something mildly stressful right now, and locate the feeling in your body.</p>
+                <p>Instead of fighting a feeling, try studying it like a curious scientist. Think of something mildly stressful right now, and locate the physical feeling in your body.</p>
                 
                 <div style="background: var(--surface); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div>
-                            <label style="font-weight:600; display:block;">Location?</label>
-                            <input type="text" id="p-loc" placeholder="e.g., tight chest">
+                            <label style="font-weight:600; display:block; margin-bottom:0.5rem;">Where is it located?</label>
+                            <input type="text" id="p-loc" placeholder="e.g., tight chest, throat">
                         </div>
                         <div>
-                            <label style="font-weight:600; display:block;">Shape?</label>
+                            <label style="font-weight:600; display:block; margin-bottom:0.5rem;">If it had a shape, what would it be?</label>
                             <select id="p-shape" onchange="checkCustom('p-shape')">
                                 <option>A jagged rock</option>
                                 <option>A heavy sphere</option>
                                 <option>A dark cloud</option>
                                 <option value="custom">Other (write my own)...</option>
                             </select>
-                            <input type="text" id="p-shape-custom" class="custom-input" placeholder="Type shape...">
+                            <input type="text" id="p-shape-custom" class="custom-input" placeholder="Type custom shape...">
                         </div>
                         <div>
-                            <label style="font-weight:600; display:block;">Temperature?</label>
+                            <label style="font-weight:600; display:block; margin-bottom:0.5rem;">If it had a temperature, what would it be?</label>
                             <select id="p-temp" onchange="checkCustom('p-temp')">
                                 <option>Burning hot</option>
                                 <option>Ice cold</option>
                                 <option value="custom">Other (write my own)...</option>
                             </select>
-                            <input type="text" id="p-temp-custom" class="custom-input" placeholder="Type temp...">
+                            <input type="text" id="p-temp-custom" class="custom-input" placeholder="Type custom temperature...">
                         </div>
                         <div>
-                            <label style="font-weight:600; display:block;">Texture?</label>
+                            <label style="font-weight:600; display:block; margin-bottom:0.5rem;">If it had a texture, what would it be?</label>
                             <select id="p-text" onchange="checkCustom('p-text')">
                                 <option>Sharp and prickly</option>
                                 <option>Heavy and dense</option>
                                 <option value="custom">Other (write my own)...</option>
                             </select>
-                            <input type="text" id="p-text-custom" class="custom-input" placeholder="Type texture...">
+                            <input type="text" id="p-text-custom" class="custom-input" placeholder="Type custom texture...">
                         </div>
                     </div>
+                    <p style="margin-top: 1.5rem; font-style: italic; color: var(--primary);">Now, imagine your breath flowing directly into and around that object. You aren't trying to blow it away; you are just making a comfortable space in your body for it to exist. Let it be there.</p>
                 </div>
 
                 <h3>Exercise 2: The Self-Compassion Double Standard</h3>
+                <p>Doing this work is incredibly courageous. Yet, we often treat ourselves with a harshness we would never inflict on someone else. Before listening to the final audio, try this reflection.</p>
                 <div class="double-standard-grid">
                     <div class="ds-col">
                         <h4 style="text-align:center; border-bottom:1px solid #ccc; padding-bottom:10px;">A Friend Fails</h4>
-                        <p>A close friend fails. What exact words do you say to them?</p>
-                        <textarea id="w5-friend" rows="3" placeholder="I would say..."></textarea>
+                        <p>Imagine a close friend you love comes to you in tears. They failed at something important or made a huge mistake. What tone of voice do you use? What exact words do you say to them?</p>
+                        <textarea id="w5-friend" rows="3" placeholder="I would say to them..."></textarea>
                     </div>
                     <div class="ds-col">
                         <h4 style="text-align:center; border-bottom:1px solid #ccc; padding-bottom:10px;">You Fail</h4>
-                        <p>You make the exact same mistake. What does your mind say to you?</p>
-                        <textarea id="w5-self" rows="3" placeholder="My mind says..."></textarea>
+                        <p>Now, imagine you make that exact same mistake. What is the tone of your internal voice? What exact words does your mind immediately say to you?</p>
+                        <textarea id="w5-self" rows="3" placeholder="My mind says to me..."></textarea>
                     </div>
                 </div>
 
@@ -577,10 +651,11 @@
 
                 <div style="background: var(--primary); padding: 3rem; border-radius: var(--radius); margin-top: 4rem; color: white;">
                     <h3 style="color: white; margin-top: 0; text-align: center;">The Final Reflection</h3>
-                    <textarea id="w5-final" rows="6" placeholder="Write a letter of commitment and compassion to yourself as you move forward..." style="background: rgba(255,255,255,0.95); color: var(--text-main); border:none;"></textarea>
+                    <p style="text-align: center;">As you conclude this program, reflect on your journey. What is the most vital insight you are taking with you?</p>
+                    <textarea id="w5-final" rows="6" placeholder="Take your time. Write a letter of commitment and compassion to yourself as you move forward..." style="background: rgba(255,255,255,0.95); color: var(--text-main); border:none;"></textarea>
                 </div>
 
-                <button style="background:transparent; color:var(--text-muted); border:2px solid var(--border); padding:1.2rem; border-radius:12px; width:100%; margin-top:4rem; cursor:pointer;" onclick="resetProgress()">Erase All Data & Restart</button>
+                <button style="background:transparent; color:var(--text-muted); border:2px solid var(--border); padding:1.2rem; border-radius:12px; width:100%; margin-top:4rem; cursor:pointer; transition: all 0.2s;" onmouseover="this.style.background='#fef2f2'; this.style.color='#ef4444'; this.style.borderColor='#ef4444'" onmouseout="this.style.background='transparent'; this.style.color='var(--text-muted)'; this.style.borderColor='var(--border)'" onclick="resetProgress()">Erase All Data & Restart</button>
             </section>
         </main>
     </div>
@@ -600,7 +675,7 @@
 
         const valuesList = ["Authenticity", "Compassion", "Courage", "Creativity", "Curiosity", "Flexibility", "Forgiveness", "Gratitude", "Humor/Fun", "Industriousness", "Intimacy", "Justice", "Loyalty", "Mindfulness", "Patience", "Reliability", "Respect", "Spirituality", "Trust", "Vulnerability"];
 
-        let unlockedLevel = parseInt(localStorage.getItem('act_lvl_v3')) || 0;
+        let unlockedLevel = parseInt(localStorage.getItem('act_lvl_v4')) || 0;
         let currentLevel = 0;
         let saveTimeout;
 
@@ -610,9 +685,9 @@
             renderValuesGrid();
             loadFormData();
             attachAutoSave();
+            setupDial(); // Initialize custom dial
             showModule(unlockedLevel === 0 ? 0 : unlockedLevel);
             toggleStruggle();
-            updateDial();
             updateChess('white');
             updateChess('black');
             populateWeek2Values();
@@ -653,7 +728,7 @@
             const nextLevel = id + 1;
             if (nextLevel > unlockedLevel && nextLevel <= 5) {
                 unlockedLevel = nextLevel;
-                localStorage.setItem('act_lvl_v3', unlockedLevel);
+                localStorage.setItem('act_lvl_v4', unlockedLevel);
             }
             saveState();
             showModule(nextLevel);
@@ -666,7 +741,7 @@
         // Week 1: Values
         function renderValuesGrid() {
             const grid = document.getElementById('values-grid');
-            const savedVals = JSON.parse(localStorage.getItem('act_vals_v3') || '[]');
+            const savedVals = JSON.parse(localStorage.getItem('act_vals_v4') || '[]');
             valuesList.forEach(val => {
                 const div = document.createElement('div');
                 div.className = `value-card ${savedVals.includes(val) ? 'selected' : ''}`;
@@ -678,7 +753,7 @@
         }
 
         function toggleValue(el, val) {
-            let savedVals = JSON.parse(localStorage.getItem('act_vals_v3') || '[]');
+            let savedVals = JSON.parse(localStorage.getItem('act_vals_v4') || '[]');
             if (savedVals.includes(val)) {
                 savedVals = savedVals.filter(v => v !== val);
                 el.classList.remove('selected');
@@ -687,7 +762,7 @@
                 savedVals.push(val);
                 el.classList.add('selected');
             }
-            localStorage.setItem('act_vals_v3', JSON.stringify(savedVals));
+            localStorage.setItem('act_vals_v4', JSON.stringify(savedVals));
             document.getElementById('value-count').innerText = savedVals.length;
             populateWeek2Values();
             showSaveToast();
@@ -695,7 +770,7 @@
 
         // Week 2 Integration
         function populateWeek2Values() {
-            const savedVals = JSON.parse(localStorage.getItem('act_vals_v3') || '[]');
+            const savedVals = JSON.parse(localStorage.getItem('act_vals_v4') || '[]');
             const display = document.getElementById('w2-reflected-values');
             display.innerText = savedVals.length > 0 ? savedVals.join(", ") : "[Complete Week 1 First]";
         }
@@ -707,7 +782,7 @@
             const f = document.getElementById('gb-feel').value || "[Feeling]";
             const sentence = `I commit to a Towards move: I will ${a} on ${d} at ${t}. When the passengers yell, I am willing to make room for ${f} in order to do what matters.`;
             document.getElementById('goal-output').innerText = sentence;
-            localStorage.setItem('act_goal_v3', sentence);
+            localStorage.setItem('act_goal_v4', sentence);
             showSaveToast();
         }
 
@@ -724,20 +799,16 @@
             const text = document.getElementById(`chess-${type}-input`).value;
             const disp = document.getElementById(`chess-${type}-disp`);
             const font = document.getElementById(`chess-${type}-font`).value;
+            const size = document.getElementById(`chess-${type}-size`).value;
+            const opac = document.getElementById(`chess-${type}-opac`).value;
             
             disp.innerText = text || (type === 'white' ? "Positive Thought" : "Negative Thought");
             disp.style.fontFamily = font;
-            
-            if(type === 'white') {
-                const size = document.getElementById('chess-white-size').value;
-                disp.style.fontSize = size + 'px';
-            } else {
-                const opac = document.getElementById('chess-black-opac').value;
-                disp.style.opacity = opac / 100;
-            }
+            disp.style.fontSize = size + 'px';
+            disp.style.opacity = opac / 100;
         }
 
-        // Week 5: Struggle Switch, Dial, Custom Selects
+        // Week 5: Struggle Switch, Custom Dial, Custom Selects
         function toggleStruggle() {
             const isChecked = document.getElementById('struggle-switch').checked;
             const status = document.getElementById('switch-status');
@@ -753,15 +824,66 @@
             }
         }
 
-        function updateDial() {
-            const val = document.getElementById('willingness-dial').value;
+        // Custom Dial Interaction Logic
+        function setupDial() {
+            const dialArea = document.getElementById('dial-interaction-area');
+            const knob = document.getElementById('willingness-knob');
+            let isDragging = false;
+            
+            function handleDialMove(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                
+                const rect = dialArea.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                
+                // Calculate angle from center
+                let angle = Math.atan2(clientY - centerY, clientX - centerX) * 180 / Math.PI;
+                
+                // Shift angle so bottom center is 0
+                let mappedAngle = angle + 90;
+                if (mappedAngle < -180) mappedAngle += 360;
+                if (mappedAngle > 180) mappedAngle -= 360;
+                
+                // Clamp bounds between -135deg and +135deg
+                if (mappedAngle < -135) mappedAngle = -135;
+                if (mappedAngle > 135) mappedAngle = 135;
+                
+                // Map to 0-10 scale
+                let rawVal = ((mappedAngle + 135) / 270) * 10;
+                let finalVal = Math.round(rawVal);
+                
+                setDialValue(finalVal);
+            }
+            
+            dialArea.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => { if(isDragging) { isDragging = false; saveState(); } });
+            window.addEventListener('mousemove', handleDialMove);
+            
+            dialArea.addEventListener('touchstart', () => isDragging = true, {passive: false});
+            window.addEventListener('touchend', () => { if(isDragging) { isDragging = false; saveState(); } });
+            window.addEventListener('touchmove', handleDialMove, {passive: false});
+        }
+
+        function setDialValue(val) {
+            document.getElementById('willingness-dial-hidden').value = val;
             document.getElementById('dial-val-text').innerText = val;
+            
+            // Calculate rotation (-135 to 135)
+            let deg = -135 + (val * 27); 
+            document.getElementById('willingness-knob').style.transform = `rotate(${deg}deg)`;
+            
             let desc = "";
             if(val == 0) desc = "I am completely shut down to this feeling.";
             else if(val < 4) desc = "I am highly resistant, but acknowledging it.";
             else if(val < 7) desc = "I am tolerating the feeling. It's uncomfortable but okay.";
             else if(val < 10) desc = "I am actively making room for this feeling.";
             else desc = "I am fully open and willing to experience this right now.";
+            
             document.getElementById('dial-desc').innerText = desc;
         }
 
@@ -776,9 +898,6 @@
         // Auto-Save Logic
         function attachAutoSave() {
             document.querySelectorAll('textarea, input[type="text"], select, input[type="range"], input[type="checkbox"]').forEach(input => {
-                if(input.id === 'struggle-switch' || input.id === 'willingness-dial' || input.id.startsWith('chess-')) {
-                    // special active inputs, still save them though
-                }
                 input.addEventListener('input', () => {
                     clearTimeout(saveTimeout);
                     saveTimeout = setTimeout(saveState, 1000); 
@@ -788,25 +907,31 @@
 
         function saveState() {
             const data = {};
-            document.querySelectorAll('textarea, input[type="text"], select, input[type="range"]').forEach(el => {
+            document.querySelectorAll('textarea, input[type="text"], select, input[type="range"], input[type="hidden"]').forEach(el => {
                 if(el.id) data[el.id] = el.value;
             });
             document.querySelectorAll('input[type="checkbox"]').forEach(el => {
                 if(el.id && el.id !== 'struggle-switch' && el.id !== 'intro-commit') data[el.id] = el.checked;
             });
-            localStorage.setItem('act_data_v3', JSON.stringify(data));
+            localStorage.setItem('act_data_v4', JSON.stringify(data));
             showSaveToast();
         }
 
         function loadFormData() {
-            const data = JSON.parse(localStorage.getItem('act_data_v3') || '{}');
+            const data = JSON.parse(localStorage.getItem('act_data_v4') || '{}');
             document.querySelectorAll('textarea, input[type="text"], select, input[type="range"]').forEach(el => {
                 if (el.id && data[el.id] !== undefined) el.value = data[el.id];
             });
             document.querySelectorAll('input[type="checkbox"]').forEach(el => {
                 if (el.id && el.id !== 'struggle-switch' && el.id !== 'intro-commit' && data[el.id] !== undefined) el.checked = data[el.id];
             });
-            const savedGoal = localStorage.getItem('act_goal_v3');
+            
+            // Load custom dial
+            if(data['willingness-dial-hidden'] !== undefined) {
+                setDialValue(data['willingness-dial-hidden']);
+            }
+            
+            const savedGoal = localStorage.getItem('act_goal_v4');
             if(savedGoal) document.getElementById('goal-output').innerText = savedGoal;
         }
 
