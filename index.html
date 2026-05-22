@@ -10,39 +10,39 @@
 
     <style>
         /* =============================================
-           DESIGN SYSTEM
+           DESIGN SYSTEM (Upgraded for Professional/Clinical Feel)
            ============================================= */
         :root {
-            --bg:              #EDE9E2;
-            --surface:         #FDFAF6;
-            --surface-2:       #F6F2EC;
-            --surface-3:       #EEE9E1;
-            --primary:         #1C3D4C;
-            --primary-mid:     #295B6E;
-            --primary-light:   #38798F;
-            --primary-pale:    #EAF2F5;
-            --accent:          #B86040;
-            --accent-light:    #F5E9DF;
-            --accent-mid:      #CC7C57;
-            --text-dark:       #12202A;
-            --text-body:       #283840;
-            --text-muted:      #6A7E88;
-            --text-faint:      #99ACB5;
-            --border:          #DDD8CF;
-            --border-light:    #EBE7E0;
-            --success:         #256D56;
-            --success-light:   #E2F4EE;
-            --error:           #BF3B2E;
+            --bg:              #F4F2EE; /* Softer, cleaner neutral */
+            --surface:         #FFFFFF;
+            --surface-2:       #FAF9F6;
+            --surface-3:       #EFECE6;
+            --primary:         #21404E; /* Deeper, more grounded teal */
+            --primary-mid:     #315B6D;
+            --primary-light:   #497C91;
+            --primary-pale:    #EEF4F6;
+            --accent:          #B66D4E; /* Softer, grounded terra cotta */
+            --accent-light:    #F7EFEA;
+            --accent-mid:      #CA886E;
+            --text-dark:       #172228;
+            --text-body:       #34434B;
+            --text-muted:      #6F838E;
+            --text-faint:      #A1B1BA;
+            --border:          #DEDCD6;
+            --border-light:    #EBE9E4;
+            --success:         #286B58;
+            --success-light:   #E4F4EF;
+            --error:           #B84337;
 
-            --shadow-xs:  0 1px 4px rgba(18,32,42,.06);
-            --shadow-sm:  0 2px 12px rgba(18,32,42,.08);
-            --shadow-md:  0 8px 28px rgba(18,32,42,.10);
-            --shadow-lg:  0 20px 60px rgba(18,32,42,.14);
-            --shadow-in:  inset 0 2px 8px rgba(0,0,0,.08);
+            --shadow-xs:  0 2px 6px rgba(23,34,40,.04);
+            --shadow-sm:  0 4px 16px rgba(23,34,40,.06);
+            --shadow-md:  0 12px 32px rgba(23,34,40,.08);
+            --shadow-lg:  0 24px 64px rgba(23,34,40,.12);
+            --shadow-in:  inset 0 2px 8px rgba(0,0,0,.06);
 
             --r-xs: 6px;
             --r-sm: 10px;
-            --r:    16px;
+            --r:    14px; /* Slightly softer corners */
             --r-lg: 24px;
         }
 
@@ -50,13 +50,11 @@
            RESET & BASE
            ============================================= */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Jost', -apple-system, sans-serif;
             background-color: var(--bg);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.025'/%3E%3C/svg%3E");
             color: var(--text-body);
             line-height: 1.8;
             padding-bottom: 6rem;
@@ -69,75 +67,57 @@
             font-family: 'Cormorant Garamond', Georgia, serif;
             color: var(--primary);
         }
-
         h2 {
             font-size: 2.5rem;
-            font-weight: 400;
-            letter-spacing: -.02em;
+            font-weight: 500;
+            letter-spacing: -.01em;
             line-height: 1.2;
-            padding-bottom: 1.5rem;
-            margin-bottom: 2.25rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 2rem;
             border-bottom: 1px solid var(--border);
             position: relative;
         }
-
         h2::after {
             content: '';
             position: absolute;
             bottom: -1px;
             left: 0;
-            width: 3.5rem;
+            width: 4rem;
             height: 2.5px;
             background: var(--accent);
             border-radius: 2px;
         }
-
         h3 {
-            font-size: 1.65rem;
+            font-size: 1.75rem;
             font-weight: 500;
             color: var(--primary-mid);
-            margin-top: 3.25rem;
-            margin-bottom: 1.1rem;
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
             line-height: 1.3;
         }
-
         h4 {
             font-family: 'Jost', sans-serif;
-            font-size: .7rem;
+            font-size: .75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: .12em;
             color: var(--text-muted);
             margin-bottom: .75rem;
         }
-
         p {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             line-height: 1.85;
             color: var(--text-body);
-            margin-bottom: 1.4rem;
-        }
-
-        p:last-child { margin-bottom: 0; }
-
-        ul, ol {
-            padding-left: 1.5rem;
             margin-bottom: 1.5rem;
         }
-
-        li {
-            font-size: 1.05rem;
-            line-height: 1.75;
-            margin-bottom: .55rem;
-            color: var(--text-body);
-        }
-
+        p:last-child { margin-bottom: 0; }
+        ul, ol { padding-left: 1.75rem; margin-bottom: 1.5rem; }
+        li { font-size: 1.08rem; line-height: 1.75; margin-bottom: .65rem; color: var(--text-body); }
         strong { color: var(--text-dark); font-weight: 600; }
         em { font-style: italic; color: var(--text-dark); }
-
         .serif-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             line-height: 1.75;
             font-style: italic;
         }
@@ -147,76 +127,66 @@
            ============================================= */
         .app-header {
             background: var(--primary);
-            background-image: linear-gradient(160deg, #0D2330 0%, #1C3D4C 45%, #23404F 100%);
+            background-image: linear-gradient(160deg, #142831 0%, #21404E 45%, #294F5F 100%);
             color: white;
-            padding: 5.5rem 1.5rem 7rem;
+            padding: 6rem 1.5rem 7.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-
         .app-header::before {
             content: '';
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 18% 65%, rgba(56,121,143,.28) 0%, transparent 55%),
-                radial-gradient(ellipse at 82% 28%, rgba(184,96,64,.14) 0%, transparent 45%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+                radial-gradient(ellipse at 18% 65%, rgba(73, 124, 145, 0.25) 0%, transparent 55%),
+                radial-gradient(ellipse at 82% 28%, rgba(182, 109, 78, 0.15) 0%, transparent 45%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
             pointer-events: none;
         }
-
         .app-header::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 2px;
+            width: 120px;
+            height: 3px;
             background: linear-gradient(90deg, transparent, var(--accent-mid), transparent);
         }
-
         .header-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: .5rem;
             font-family: 'Jost', sans-serif;
-            font-size: .68rem;
+            font-size: .7rem;
             font-weight: 700;
             letter-spacing: .2em;
             text-transform: uppercase;
             color: var(--accent-mid);
             margin-bottom: 1.5rem;
-            padding: .4rem 1.2rem;
-            border: 1px solid rgba(204,124,87,.38);
+            padding: .4rem 1.25rem;
+            border: 1px solid rgba(202, 136, 110, 0.35);
             border-radius: 2rem;
             position: relative;
         }
-
         .header-eyebrow::before,
         .header-eyebrow::after {
-            content: '';
-            display: block;
-            width: 18px;
-            height: 1px;
-            background: rgba(204,124,87,.5);
+            content: ''; display: block; width: 18px; height: 1px; background: rgba(202, 136, 110, 0.5);
         }
-
         .app-header h1 {
             color: white;
-            font-size: 4.2rem;
+            font-size: 4.4rem;
             font-weight: 300;
-            letter-spacing: -.035em;
+            letter-spacing: -.02em;
             margin-bottom: 1rem;
             position: relative;
         }
-
         .app-header > p {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            opacity: .7;
-            max-width: 500px;
+            opacity: .8;
+            max-width: 520px;
             margin: 0 auto;
             color: white;
             letter-spacing: .02em;
@@ -229,9 +199,9 @@
            ============================================= */
         .container {
             display: grid;
-            grid-template-columns: 268px 1fr;
-            gap: 2rem;
-            max-width: 1180px;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+            max-width: 1200px;
             margin: -4rem auto 0;
             padding: 0 1.5rem;
             position: relative;
@@ -244,94 +214,151 @@
         .sidebar {
             background: var(--surface);
             border-radius: var(--r);
-            padding: 1.25rem;
-            box-shadow: var(--shadow-md);
+            padding: 1.5rem 1.25rem;
+            box-shadow: var(--shadow-sm);
             height: max-content;
             position: sticky;
             top: 2rem;
             border: 1px solid var(--border-light);
         }
-
         .sidebar-label {
             display: block;
             font-family: 'Jost', sans-serif;
-            font-size: .62rem;
+            font-size: .65rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: .16em;
             color: var(--text-faint);
-            padding: 0 .5rem;
-            margin-bottom: .75rem;
-            margin-top: .15rem;
+            padding: 0 .75rem;
+            margin-bottom: 1rem;
         }
-
         .nav-btn {
             display: flex;
             align-items: center;
             width: 100%;
-            padding: .875rem 1rem;
-            margin-bottom: .2rem;
+            padding: .9rem 1rem;
+            margin-bottom: .25rem;
             background: transparent;
             border: none;
             border-radius: var(--r-sm);
-            font-size: .88rem;
+            font-size: .9rem;
             font-family: 'Jost', sans-serif;
             font-weight: 500;
             color: var(--text-muted);
             cursor: pointer;
             text-align: left;
-            transition: all .18s ease;
+            transition: all .2s ease;
             letter-spacing: .01em;
         }
-
         .nav-btn svg {
-            width: 17px;
-            height: 17px;
-            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
             flex-shrink: 0;
-            opacity: .55;
-            transition: opacity .18s;
+            opacity: .6;
+            transition: opacity .2s;
         }
-
         .nav-btn:hover:not(:disabled) {
             background: var(--surface-2);
             color: var(--primary);
         }
-
         .nav-btn:hover:not(:disabled) svg { opacity: 1; }
-
         .nav-btn.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
+            background: var(--primary-pale);
+            color: var(--primary);
+            font-weight: 600;
         }
-
-        .nav-btn.active svg { opacity: 1; }
-
+        .nav-btn.active svg { opacity: 1; color: var(--primary); }
         .nav-btn:disabled {
-            opacity: .32;
+            opacity: .35;
             cursor: not-allowed;
-            background: var(--surface-2);
+            background: transparent;
         }
 
         /* =============================================
-           CONTENT AREA
+           CONTENT AREA & PAGINATION
            ============================================= */
         .content-area {
             background: var(--surface);
             border-radius: var(--r);
-            padding: 3.75rem 4.25rem;
+            padding: 3.5rem 4.5rem;
             box-shadow: var(--shadow-md);
             min-height: 80vh;
             border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+        }
+        .module { display: none; flex: 1; flex-direction: column; }
+        .module.active { display: flex; animation: fadeUp .5s ease; }
+        
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .module { display: none; animation: reveal .45s cubic-bezier(.22,1,.36,1); }
-        .module.active { display: block; }
+        /* Step pages within modules */
+        .step-page {
+            display: none;
+            flex: 1;
+            animation: fadeIn .4s ease;
+        }
+        .step-page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
 
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
+        /* Pagination Bar */
+        .pagination-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+        .btn-page {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            padding: .75rem 1.5rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-family: 'Jost', sans-serif;
+            font-weight: 600;
+            font-size: .85rem;
+            color: var(--text-body);
+            transition: all .2s;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        .btn-page:hover:not(:disabled) {
+            background: var(--primary-pale);
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+        .btn-page:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .page-dots {
+            display: flex;
+            gap: .5rem;
+        }
+        .page-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: all .3s ease;
+        }
+        .page-dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
         }
 
         /* =============================================
@@ -339,33 +366,30 @@
            ============================================= */
         .concept-box {
             background: var(--primary-pale);
-            border-left: 3px solid var(--primary-light);
-            padding: 1.75rem 2rem;
+            border-left: 4px solid var(--primary-light);
+            padding: 1.75rem 2.25rem;
             border-radius: 0 var(--r-sm) var(--r-sm) 0;
-            margin: 2.25rem 0;
+            margin: 2.5rem 0;
         }
-
         .concept-box h4 {
             color: var(--primary);
-            font-size: .65rem;
+            font-size: .7rem;
             letter-spacing: .14em;
             display: flex;
             align-items: center;
-            gap: .5rem;
-            margin-bottom: .875rem;
+            gap: .75rem;
+            margin-bottom: 1rem;
         }
-
         .concept-box h4::before {
             content: '';
             display: inline-block;
-            width: 18px;
+            width: 20px;
             height: 2px;
             background: var(--primary-light);
             border-radius: 1px;
             flex-shrink: 0;
         }
-
-        .concept-box p { font-size: 1rem; margin-bottom: .75rem; }
+        .concept-box p { font-size: 1.05rem; margin-bottom: .85rem; }
         .concept-box p:last-child { margin-bottom: 0; }
 
         /* =============================================
@@ -373,142 +397,99 @@
            ============================================= */
         .callout-box {
             background: var(--accent-light);
-            border: 1px solid rgba(184,96,64,.18);
-            padding: 2.5rem 2.75rem 2.25rem;
+            border: 1px solid rgba(182, 109, 78, 0.15);
+            padding: 2.75rem 3rem 2.5rem;
             border-radius: var(--r);
             margin: 2.5rem 0;
             position: relative;
             overflow: hidden;
         }
-
         .callout-box::before {
             content: '\201C';
             font-family: 'Cormorant Garamond', serif;
-            font-size: 10rem;
+            font-size: 12rem;
             line-height: 1;
             color: var(--accent);
-            opacity: .14;
+            opacity: .08;
             position: absolute;
-            top: -1.75rem;
-            left: 1.25rem;
+            top: -2.5rem;
+            left: 1rem;
             pointer-events: none;
             user-select: none;
         }
-
-        .callout-box h4 {
-            color: var(--accent);
-            font-size: .65rem;
-            letter-spacing: .14em;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .callout-box .serif-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.28rem;
-            line-height: 1.72;
-            font-style: italic;
-            color: var(--text-dark);
-            position: relative;
-        }
-
-        .callout-box p {
-            font-size: 1.05rem;
-            margin-bottom: .75rem;
-            position: relative;
-        }
+        .callout-box h4 { color: var(--accent); position: relative; }
+        .callout-box .serif-text { color: var(--text-dark); position: relative; }
+        .callout-box p { position: relative; }
 
         /* =============================================
            AUDIO / MEDIA BLOCKS
            ============================================= */
         .media-placeholder {
-            background: linear-gradient(145deg, #0F1B24, #192A38);
+            background: linear-gradient(145deg, #182832, #213543);
             color: white;
-            padding: 2.5rem 2.75rem;
+            padding: 2.5rem 3rem;
             border-radius: var(--r);
             margin: 2.5rem 0;
-            border: 1px solid rgba(255,255,255,.04);
-            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255,255,255,.06);
+            box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
         }
-
         .media-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(56,121,143,.7), transparent);
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(73,124,145,.7), transparent);
         }
-
         .media-placeholder h4 {
-            color: rgba(255,255,255,.88);
-            font-size: .88rem;
+            color: rgba(255,255,255,.9);
+            font-size: .95rem;
             font-weight: 500;
-            letter-spacing: .04em;
+            letter-spacing: .05em;
             margin-bottom: 1.5rem;
             text-transform: none;
         }
-
         audio { width: 100%; outline: none; border-radius: 30px; }
 
         /* =============================================
            FORMS & INPUTS
            ============================================= */
-        textarea,
-        input[type="text"],
-        select {
+        textarea, input[type="text"], select {
             width: 100%;
-            padding: 1rem 1.25rem;
+            padding: 1.1rem 1.25rem;
             border: 1.5px solid var(--border);
             border-radius: var(--r-sm);
             font-family: 'Jost', sans-serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 1.25rem;
-            transition: border-color .18s, box-shadow .18s;
+            transition: all .2s;
             background: var(--surface);
             color: var(--text-body);
             line-height: 1.6;
         }
-
-        textarea::placeholder,
-        input[type="text"]::placeholder {
+        textarea::placeholder, input[type="text"]::placeholder {
             color: var(--text-faint);
             font-style: italic;
         }
-
-        textarea:focus,
-        input[type="text"]:focus,
-        select:focus {
+        textarea:focus, input[type="text"]:focus, select:focus {
             outline: none;
             border-color: var(--primary-light);
-            box-shadow: 0 0 0 3px rgba(56,121,143,.13);
+            box-shadow: 0 0 0 4px rgba(73,124,145,.1);
         }
-
         textarea { resize: vertical; line-height: 1.7; }
-
         select {
             cursor: pointer;
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='none' stroke='%231C3D4C' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='none' stroke='%2321404E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 1.2rem center;
             padding-right: 3rem;
         }
-
-        .custom-input {
-            display: none;
-            margin-top: -.75rem;
-            border-style: dashed;
-        }
-
+        .custom-input { display: none; margin-top: -.75rem; border-style: dashed; }
         input[type="range"] {
             width: 100%;
             accent-color: var(--accent);
             margin-bottom: .5rem;
             cursor: pointer;
         }
-
         input[type="checkbox"] { accent-color: var(--primary); }
 
         /* =============================================
@@ -519,31 +500,25 @@
             justify-content: space-between;
             align-items: center;
             background: var(--surface-2);
-            padding: 1.1rem 1.4rem;
+            padding: 1.2rem 1.5rem;
             border-radius: var(--r-sm);
-            margin-bottom: .55rem;
-            border: 1.5px solid var(--border-light);
-            transition: all .18s;
+            margin-bottom: .6rem;
+            border: 1px solid var(--border-light);
+            transition: all .2s;
             cursor: pointer;
         }
-
         .check-list-item:hover {
             border-color: var(--primary-light);
             background: var(--primary-pale);
         }
-
         .check-list-item span {
-            font-size: 1rem;
+            font-size: 1.05rem;
             flex: 1;
             padding-right: 1rem;
             line-height: 1.6;
         }
-
         .check-list-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            flex-shrink: 0;
+            width: 22px; height: 22px; cursor: pointer; flex-shrink: 0;
         }
 
         /* =============================================
@@ -551,27 +526,25 @@
            ============================================= */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
-            gap: .55rem;
-            margin: 1.75rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: .6rem;
+            margin: 2rem 0;
         }
-
         .value-card {
-            border: 1.5px solid var(--border);
-            padding: .875rem .75rem;
+            border: 1px solid var(--border);
+            padding: 1rem .75rem;
             text-align: center;
             border-radius: var(--r-sm);
             cursor: pointer;
             font-family: 'Jost', sans-serif;
             font-weight: 500;
-            font-size: .875rem;
+            font-size: .9rem;
             line-height: 1.3;
             transition: all .2s ease;
             user-select: none;
-            background: var(--surface);
+            background: var(--surface-2);
             color: var(--text-muted);
         }
-
         .value-card:hover {
             border-color: var(--primary-light);
             color: var(--primary);
@@ -579,7 +552,6 @@
             transform: translateY(-2px);
             box-shadow: var(--shadow-xs);
         }
-
         .value-card.selected {
             background: var(--primary);
             color: white;
@@ -593,30 +565,27 @@
            ============================================= */
         .domain-box {
             background: var(--surface-2);
-            border: 1.5px solid var(--border-light);
-            padding: 1.75rem;
+            border: 1px solid var(--border-light);
+            padding: 2rem;
             border-radius: var(--r);
-            margin-bottom: 1.5rem;
-            transition: border-color .18s;
+            margin-bottom: 1.75rem;
+            transition: border-color .2s;
         }
-
         .domain-box:hover { border-color: var(--border); }
-
         .domain-box h4 {
             color: var(--primary-mid);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 500;
             text-transform: none;
             letter-spacing: 0;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
             gap: .5rem;
         }
-
         .domain-box h4 span {
-            font-size: .85rem;
+            font-size: .9rem;
             color: var(--text-muted);
             font-family: 'Jost', sans-serif;
             font-weight: 400;
@@ -629,86 +598,76 @@
         .guided-form {
             background: linear-gradient(145deg, var(--primary), var(--primary-mid));
             color: white;
-            padding: 2.75rem;
+            padding: 3rem;
             border-radius: var(--r);
-            margin: 2.5rem 0;
+            margin: 3rem 0;
             box-shadow: var(--shadow-md);
         }
-
         .guided-form h4 {
             color: rgba(255,255,255,.95);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 500;
             text-transform: none;
             letter-spacing: 0;
             border-bottom: 1px solid rgba(255,255,255,.15);
             padding-bottom: 1rem;
-            margin-bottom: 1.75rem;
+            margin-bottom: 2rem;
         }
-
-        .form-step { margin-bottom: 1.5rem; }
-
+        .form-step { margin-bottom: 1.75rem; }
         .form-step label {
             display: block;
-            margin-bottom: .5rem;
+            margin-bottom: .6rem;
             font-weight: 500;
-            font-size: .9rem;
-            opacity: .85;
+            font-size: .95rem;
+            opacity: .9;
         }
-
         .guided-form input[type="text"] {
             background: rgba(255,255,255,.1);
             border: 1px solid rgba(255,255,255,.2);
             color: white;
             margin-bottom: 0;
         }
-
         .guided-form input[type="text"]::placeholder {
-            color: rgba(255,255,255,.38);
+            color: rgba(255,255,255,.4);
             font-style: italic;
         }
-
         .guided-form input[type="text"]:focus {
-            border-color: rgba(204,124,87,.85);
-            box-shadow: 0 0 0 3px rgba(184,96,64,.22);
+            border-color: rgba(202,136,110,.85);
+            box-shadow: 0 0 0 4px rgba(182,109,78,.25);
         }
-
         .goal-result {
             background: var(--surface);
             color: var(--primary);
-            padding: 1.75rem;
+            padding: 2rem;
             border-radius: var(--r-sm);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            line-height: 1.68;
-            min-height: 90px;
-            margin-top: 1.25rem;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            min-height: 100px;
+            margin-top: 1.5rem;
             border-left: 4px solid var(--accent);
             font-style: italic;
         }
-
-        /* Compile button inside guided form */
         .compile-btn {
             margin-top: 1rem;
-            padding: 1rem 2rem;
-            background: rgba(255,255,255,.12);
+            padding: 1.1rem 2rem;
+            background: rgba(255,255,255,.15);
             color: white;
             font-weight: 600;
-            border: 1px solid rgba(255,255,255,.25);
+            border: 1px solid rgba(255,255,255,.3);
             border-radius: var(--r-sm);
             cursor: pointer;
             font-family: 'Jost', sans-serif;
-            font-size: .9rem;
+            font-size: .95rem;
             letter-spacing: .05em;
             text-transform: uppercase;
             width: 100%;
             transition: all .2s;
         }
-
         .compile-btn:hover {
-            background: rgba(255,255,255,.2);
-            border-color: rgba(255,255,255,.45);
+            background: rgba(255,255,255,.25);
+            border-color: rgba(255,255,255,.5);
         }
 
         /* =============================================
@@ -718,117 +677,98 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 3rem 0;
+            margin: 3.5rem 0;
         }
-
         .cp-trigger {
             background: var(--primary);
             color: white;
-            padding: 1rem 2.5rem;
-            border-radius: var(--r-sm);
+            padding: 1.25rem 3rem;
+            border-radius: 2rem;
             font-weight: 600;
-            font-size: .92rem;
+            font-size: .95rem;
             margin-bottom: 2rem;
             text-align: center;
             letter-spacing: .02em;
             box-shadow: var(--shadow-sm);
             position: relative;
         }
-
         .cp-trigger::after {
             content: '';
             position: absolute;
             bottom: -2rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 1px;
+            width: 1.5px;
             height: 2rem;
             background: var(--border);
         }
-
-        .cp-fork {
-            display: flex;
-            width: 100%;
-            gap: 1.25rem;
-            margin-top: .25rem;
-        }
-
+        .cp-fork { display: flex; width: 100%; gap: 1.5rem; margin-top: .5rem; }
         .cp-path {
             flex: 1;
-            padding: 1.75rem;
+            padding: 2rem;
             border-radius: var(--r);
             position: relative;
-            border-top: 3px solid;
+            border-top: 4px solid;
+            box-shadow: var(--shadow-xs);
         }
-
-        .cp-away   { background: #FEF2F2; border-color: #EF4444; }
+        .cp-away    { background: #FCF5F4; border-color: #C95349; }
         .cp-towards { background: var(--success-light); border-color: var(--success); }
-
         .cp-path h4 {
-            font-size: .72rem;
+            font-size: .75rem;
             letter-spacing: .12em;
-            margin-bottom: .75rem;
+            margin-bottom: 1rem;
             font-family: 'Jost', sans-serif;
         }
-
-        .cp-away h4    { color: #D73232; }
+        .cp-away h4    { color: #C95349; }
         .cp-towards h4 { color: var(--success); }
-
-        .cp-arrow { font-size: 1.75rem; margin: .5rem 0; }
+        .cp-arrow { font-size: 2rem; margin: .5rem 0; }
 
         /* =============================================
            BODY SCAN TABS (WEEK 3)
            ============================================= */
         .scan-tabs {
             display: flex;
-            gap: 0;
             border-bottom: 2px solid var(--border-light);
         }
-
         .scan-tab {
             flex: 1;
-            padding: .875rem 1rem;
+            padding: 1rem 1.25rem;
             border: none;
             background: transparent;
             color: var(--text-muted);
             font-family: 'Jost', sans-serif;
             font-weight: 600;
-            font-size: .85rem;
+            font-size: .9rem;
             cursor: pointer;
-            transition: all .18s;
-            letter-spacing: .01em;
+            transition: all .2s;
+            letter-spacing: .02em;
             border-bottom: 2px solid transparent;
             margin-bottom: -2px;
             border-radius: var(--r-xs) var(--r-xs) 0 0;
         }
-
         .scan-tab:hover { color: var(--primary); background: var(--surface-2); }
-
         .scan-tab.active {
             background: var(--surface);
             color: var(--primary);
             border-bottom: 2px solid var(--primary);
         }
-
         .scan-content {
             display: none;
             background: var(--surface-2);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 0 0 var(--r-sm) var(--r-sm);
-            border: 1.5px solid var(--border-light);
+            border: 1px solid var(--border-light);
             border-top: none;
         }
-
-        .scan-content.active { display: block; animation: reveal .3s ease; }
-
+        .scan-content.active { display: block; animation: fadeIn .3s ease; }
         .scan-content h4 {
             color: var(--primary);
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 500;
             text-transform: none;
             letter-spacing: 0;
-            margin-bottom: .75rem;
+            margin-bottom: 1rem;
         }
 
         /* =============================================
@@ -837,98 +777,80 @@
         .chess-editor {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2.5rem 0;
+            gap: 2rem;
+            margin: 3rem 0;
         }
-
         .chess-panel {
-            padding: 1.75rem;
+            padding: 2rem;
             border-radius: var(--r);
-            border: 1.5px solid;
+            border: 1px solid;
+            box-shadow: var(--shadow-xs);
         }
-
         .chess-white { background: var(--surface); border-color: var(--border); }
-        .chess-black { background: #161E26; border-color: #0B1015; }
-
-        .chess-white h4 {
+        .chess-black { background: #1B262C; border-color: #121A1F; }
+        .chess-white h4, .chess-black h4 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 500;
             text-transform: none;
             letter-spacing: 0;
-            color: var(--primary);
             margin-top: 0;
+            margin-bottom: 1.25rem;
         }
-
-        .chess-black h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: 0;
-            color: rgba(255,255,255,.82);
-            margin-top: 0;
-        }
-
+        .chess-white h4 { color: var(--primary); }
+        .chess-black h4 { color: rgba(255,255,255,.9); }
         .chess-display {
-            min-height: 110px;
+            min-height: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin: 1.25rem 0;
-            font-size: 24px;
+            margin: 1.5rem 0;
+            font-size: 26px;
             transition: all .25s ease;
-            padding: 1rem;
+            padding: 1.5rem;
             word-break: break-word;
-            line-height: 1.25;
+            line-height: 1.3;
             border-radius: var(--r-sm);
         }
-
-        .chess-white .chess-display { background: var(--surface-2); color: var(--primary); }
-        .chess-black .chess-display { background: rgba(255,255,255,.05); color: rgba(255,255,255,.88); }
-
-        .control-group { margin-bottom: 1rem; }
-
+        .chess-white .chess-display { background: var(--surface-2); color: var(--primary); border: 1px solid var(--border-light); }
+        .chess-black .chess-display { background: rgba(255,255,255,.05); color: rgba(255,255,255,.9); }
+        .control-group { margin-bottom: 1.25rem; }
         .control-group label {
             font-family: 'Jost', sans-serif;
-            font-size: .7rem;
+            font-size: .75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: .08em;
             display: block;
-            margin-bottom: .4rem;
+            margin-bottom: .5rem;
         }
-
         .chess-white .control-group label { color: var(--text-muted); }
-        .chess-black .control-group label { color: rgba(255,255,255,.45); }
-
+        .chess-black .control-group label { color: rgba(255,255,255,.5); }
         .chess-panel select,
         .chess-panel input[type="range"] {
             width: 100%;
             margin-bottom: 0;
-            padding: .5rem .75rem;
+            padding: .6rem .8rem;
             border-radius: var(--r-xs);
         }
-
         .chess-white select { background: var(--surface-2); color: var(--primary); border: 1px solid var(--border); }
-        .chess-black select { background: rgba(255,255,255,.08); color: rgba(255,255,255,.82); border: 1px solid rgba(255,255,255,.14); }
-        .chess-black input[type="text"] { background: rgba(255,255,255,.08); color: white; border-color: rgba(255,255,255,.15); }
+        .chess-black select { background: rgba(255,255,255,.1); color: rgba(255,255,255,.9); border: 1px solid rgba(255,255,255,.15); }
+        .chess-black input[type="text"] { background: rgba(255,255,255,.1); color: white; border-color: rgba(255,255,255,.15); }
 
         /* =============================================
            DEFUSION FLASHCARDS (WEEK 4)
            ============================================= */
         .flashcard-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-            gap: 1rem;
-            margin: 2.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin: 3rem 0;
         }
-
         .flashcard {
             background: var(--surface-2);
-            border: 1.5px solid var(--border);
-            padding: 1.5rem;
+            border: 1px solid var(--border);
+            padding: 1.75rem;
             border-radius: var(--r);
             cursor: pointer;
             text-align: center;
@@ -936,12 +858,11 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 80px;
+            min-height: 90px;
         }
-
         .flashcard h4 {
             font-family: 'Jost', sans-serif;
-            font-size: .88rem;
+            font-size: .95rem;
             font-weight: 600;
             color: var(--primary-mid);
             text-transform: none;
@@ -949,32 +870,28 @@
             margin: 0;
             transition: color .2s;
         }
-
         .flashcard:hover {
             border-color: var(--primary-light);
             transform: translateY(-3px);
             box-shadow: var(--shadow-sm);
         }
-
         .flashcard .content {
             display: none;
-            margin-top: 1.25rem;
-            font-size: .95rem;
+            margin-top: 1.5rem;
+            font-size: 1rem;
             text-align: left;
-            line-height: 1.7;
+            line-height: 1.75;
             border-top: 1px solid var(--border);
-            padding-top: 1rem;
+            padding-top: 1.25rem;
             color: var(--text-body);
         }
-
         .flashcard.open {
             background: var(--surface);
             box-shadow: var(--shadow-md);
             border-color: var(--primary);
         }
-
         .flashcard.open h4 { color: var(--accent); }
-        .flashcard.open .content { display: block; animation: reveal .3s; }
+        .flashcard.open .content { display: block; animation: fadeIn .3s; }
 
         /* =============================================
            STRUGGLE SWITCH (WEEK 5)
@@ -982,72 +899,63 @@
         .switch-container {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            margin: 3rem 0;
-            padding: 2.75rem;
-            background: linear-gradient(145deg, #101820, #1B2C3A);
+            gap: 2.5rem;
+            margin: 3.5rem 0;
+            padding: 3rem;
+            background: linear-gradient(145deg, #1A252A, #283942);
             color: white;
             border-radius: var(--r-lg);
             box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.05);
         }
-
         .switch-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
         }
-
-        .switch { position: relative; display: inline-block; width: 80px; height: 44px; }
+        .switch { position: relative; display: inline-block; width: 84px; height: 46px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-
         .slider {
             position: absolute;
             cursor: pointer;
             top: 0; left: 0; right: 0; bottom: 0;
             background: var(--accent);
             transition: .35s cubic-bezier(.34,1.56,.64,1);
-            border-radius: 44px;
+            border-radius: 46px;
             box-shadow: var(--shadow-in);
         }
-
         .slider::before {
             position: absolute;
             content: '';
-            height: 36px;
-            width: 36px;
+            height: 38px;
+            width: 38px;
             left: 4px;
             bottom: 4px;
             background: white;
             transition: .35s cubic-bezier(.34,1.56,.64,1);
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,.25);
+            box-shadow: 0 2px 8px rgba(0,0,0,.2);
         }
-
         input:checked + .slider { background: var(--success); }
-        input:checked + .slider::before { transform: translateX(36px); }
-
+        input:checked + .slider::before { transform: translateX(38px); }
         #switch-text-panel { flex: 1; }
-
         #switch-status {
             font-family: 'Jost', sans-serif;
-            font-size: .68rem;
+            font-size: .75rem;
             text-transform: uppercase;
             letter-spacing: .16em;
             font-weight: 700;
             color: var(--success);
-            margin-bottom: .5rem;
+            margin-bottom: .75rem;
             transition: color .3s;
         }
-
         #switch-desc {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.22rem;
-            line-height: 1.68;
-            color: rgba(255,255,255,.82);
+            font-size: 1.35rem;
+            line-height: 1.65;
+            color: rgba(255,255,255,.9);
         }
-
         @media (min-width: 768px) { .switch-container { flex-direction: row; } }
 
         /* =============================================
@@ -1055,63 +963,57 @@
            ============================================= */
         .dial-box {
             background: var(--accent-light);
-            padding: 3rem 2rem 2.5rem;
+            padding: 3.5rem 2rem 3rem;
             border-radius: var(--r-lg);
             text-align: center;
-            border: 1.5px solid rgba(184,96,64,.2);
-            margin-bottom: 2rem;
+            border: 1px solid rgba(182,109,78,.15);
+            margin-bottom: 2.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-
         .dial-interaction-area {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             background: var(--surface);
-            border: 6px solid var(--border);
+            border: 8px solid var(--border);
             position: relative;
             cursor: grab;
             box-shadow: var(--shadow-in), var(--shadow-md);
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
             user-select: none;
             transition: border-color .2s;
         }
-
         .dial-interaction-area:hover { border-color: var(--accent-mid); }
         .dial-interaction-area:active { cursor: grabbing; }
-
         .willingness-knob {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: var(--surface);
-            box-shadow: 0 4px 16px rgba(0,0,0,.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,.12);
             position: absolute;
             display: flex;
             justify-content: center;
-            padding-top: 12px;
+            padding-top: 14px;
             transition: transform .05s ease-out;
         }
-
-        .knob-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
-
+        .knob-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
         .dial-value-display {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4.2rem;
+            font-size: 4.5rem;
             font-weight: 300;
             color: var(--accent);
             line-height: 1;
             margin: .5rem 0;
         }
-
         .dial-labels { position: absolute; width: 100%; height: 100%; pointer-events: none; }
-        .dial-label-0  { position: absolute; bottom: 8px; left: 8px; font-weight: 700; color: var(--text-muted); font-size: 1rem; }
-        .dial-label-10 { position: absolute; bottom: 8px; right: 8px; font-weight: 700; color: var(--text-muted); font-size: 1rem; }
+        .dial-label-0  { position: absolute; bottom: 8px; left: 12px; font-weight: 700; color: var(--text-muted); font-size: 1.1rem; }
+        .dial-label-10 { position: absolute; bottom: 8px; right: 12px; font-weight: 700; color: var(--text-muted); font-size: 1.1rem; }
 
         /* =============================================
            DOUBLE STANDARD GRID (WEEK 5)
@@ -1119,28 +1021,26 @@
         .double-standard-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 2rem;
+            margin: 2.5rem 0;
         }
-
         .ds-col {
             background: var(--surface-2);
-            padding: 1.75rem;
+            padding: 2.25rem;
             border-radius: var(--r);
-            border: 1.5px solid var(--border-light);
+            border: 1px solid var(--border-light);
         }
-
         .ds-col h4 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-weight: 500;
             text-transform: none;
             letter-spacing: 0;
             color: var(--primary);
             text-align: center;
             border-bottom: 1.5px solid var(--border);
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         /* =============================================
@@ -1148,12 +1048,12 @@
            ============================================= */
         .image-placeholder img {
             width: 100%;
-            max-height: 420px;
+            max-height: 460px;
             object-fit: cover;
             border-radius: var(--r);
             display: block;
             margin: 2.5rem 0;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
         }
 
         /* =============================================
@@ -1163,47 +1063,44 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: .5rem;
+            gap: .75rem;
             width: 100%;
             background: var(--primary);
             color: white;
             border: none;
-            padding: 1.2rem 2rem;
-            font-size: .82rem;
+            padding: 1.25rem 2rem;
+            font-size: .9rem;
             font-family: 'Jost', sans-serif;
             font-weight: 700;
             letter-spacing: .12em;
             text-transform: uppercase;
-            border-radius: var(--r-sm);
+            border-radius: 2rem;
             cursor: pointer;
-            margin-top: 4rem;
-            transition: all .22s ease;
+            margin-top: 1rem;
+            transition: all .25s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
-
         .btn-primary::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,.09) 0%, transparent 60%);
+            background: linear-gradient(135deg, rgba(255,255,255,.08) 0%, transparent 60%);
             pointer-events: none;
         }
-
         .btn-primary::after {
             content: '→';
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             font-weight: 300;
-            transition: transform .22s ease;
+            transition: transform .25s ease;
         }
-
         .btn-primary:hover {
             background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(28,61,76,.35);
+            box-shadow: 0 10px 28px rgba(33,64,78,.3);
         }
-
-        .btn-primary:hover::after { transform: translateX(5px); }
+        .btn-primary:hover::after { transform: translateX(6px); }
         .btn-primary:active { transform: translateY(0); }
 
         /* =============================================
@@ -1211,22 +1108,22 @@
            ============================================= */
         .save-indicator {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 30px;
+            right: 30px;
             background: var(--success);
             color: white;
-            padding: .65rem 1.75rem;
+            padding: .75rem 2rem;
             border-radius: 2rem;
             font-family: 'Jost', sans-serif;
             font-weight: 600;
-            font-size: .82rem;
+            font-size: .9rem;
             letter-spacing: .05em;
             opacity: 0;
             transition: opacity .3s, transform .3s;
             pointer-events: none;
             z-index: 1000;
             box-shadow: var(--shadow-md);
-            transform: translateY(8px);
+            transform: translateY(12px);
         }
 
         /* =============================================
@@ -1238,8 +1135,8 @@
             color: var(--primary);
             font-family: 'Jost', sans-serif;
             font-weight: 600;
-            font-size: .85rem;
-            padding: .2rem .75rem;
+            font-size: .9rem;
+            padding: .25rem 1rem;
             border-radius: 2rem;
         }
 
@@ -1255,25 +1152,27 @@
                 position: static;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: .4rem;
-                padding: 1rem;
+                gap: .5rem;
+                padding: 1.25rem;
             }
-            .content-area  { padding: 2.5rem 2rem; }
+            .content-area  { padding: 3rem 2.5rem; }
             .cp-fork        { flex-direction: column; }
             .chess-editor   { grid-template-columns: 1fr; }
             .double-standard-grid { grid-template-columns: 1fr; }
-            .app-header h1  { font-size: 3rem; }
+            .app-header h1  { font-size: 3.4rem; }
         }
 
         @media (max-width: 600px) {
             .sidebar { grid-template-columns: 1fr; }
-            .content-area { padding: 2rem 1.25rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.4rem; }
-            .app-header { padding: 4rem 1rem 5rem; }
-            .app-header h1 { font-size: 2.4rem; }
-            .guided-form { padding: 1.75rem; }
+            .content-area { padding: 2.25rem 1.5rem; }
+            h2 { font-size: 2.2rem; }
+            h3 { font-size: 1.5rem; }
+            .app-header { padding: 4.5rem 1rem 5.5rem; }
+            .app-header h1 { font-size: 2.6rem; }
+            .guided-form { padding: 2rem 1.5rem; }
             .flashcard-container { grid-template-columns: 1fr; }
+            .pagination-bar { flex-direction: column-reverse; gap: 1.5rem; }
+            .btn-page { width: 100%; justify-content: center; }
         }
     </style>
 </head>
@@ -1292,580 +1191,679 @@
 
             <!-- ===== MODULE 0: INTRODUCTION ===== -->
             <section id="mod-0" class="module active">
-                <h2>Welcome to Psychological Flexibility</h2>
+                <div class="step-page active" data-page="1">
+                    <h2>Welcome to Psychological Flexibility</h2>
+                    <p>Have you ever felt like you are fighting a war inside your own mind? Trying to forcefully "think positive," eliminate anxiety, or stop feeling sad? It takes a massive amount of energy, doesn't it?</p>
 
-                <p>Have you ever felt like you are fighting a war inside your own mind? Trying to forcefully "think positive," eliminate anxiety, or stop feeling sad? It takes a massive amount of energy, doesn't it?</p>
-
-                <div class="concept-box">
-                    <h4>Core Concept: Creative Hopelessness</h4>
-                    <p>Before we begin, we need to look honestly at what you've already tried. Most of us try to control our internal world (our thoughts and feelings) the same way we control the outside world. If there's a rock in your shoe, you take it out. So, naturally, if there's sadness in your mind, you try to pull it out.</p>
-                    <p>But ask yourself: <strong>Has running away from, suppressing, or fighting your difficult emotions permanently worked?</strong> If you are completely honest, fighting your mind probably hasn't brought you lasting peace. Realising that your old strategies are "hopeless" isn't depressing—it's liberating. It means you can finally drop the heavy armour you've been carrying and try something radically new.</p>
+                    <div class="concept-box">
+                        <h4>Core Concept: Creative Hopelessness</h4>
+                        <p>Before we begin, we need to look honestly at what you've already tried. Most of us try to control our internal world (our thoughts and feelings) the same way we control the outside world. If there's a rock in your shoe, you take it out. So, naturally, if there's sadness in your mind, you try to pull it out.</p>
+                        <p>But ask yourself: <strong>Has running away from, suppressing, or fighting your difficult emotions permanently worked?</strong> If you are completely honest, fighting your mind probably hasn't brought you lasting peace. Realising that your old strategies are "hopeless" isn't depressing—it's liberating. It means you can finally drop the heavy armour you've been carrying and try something radically new.</p>
+                    </div>
                 </div>
 
-                <p>Most approaches to mental health are about trying to <em>reduce</em> symptoms. Acceptance and Commitment Therapy (ACT) takes a different approach.</p>
+                <div class="step-page" data-page="2">
+                    <p>Most approaches to mental health are about trying to <em>reduce</em> symptoms. Acceptance and Commitment Therapy (ACT) takes a different approach.</p>
 
-                <div class="callout-box">
-                    <p class="serif-text">"The goal of ACT is to create a rich and meaningful life, while accepting the pain that inevitably goes with it." — Dr. Russ Harris</p>
+                    <div class="callout-box">
+                        <p class="serif-text">"The goal of ACT is to create a rich and meaningful life, while accepting the pain that inevitably goes with it." — Dr. Russ Harris</p>
+                    </div>
+
+                    <div class="concept-box">
+                        <h4>Core Concept: Workability</h4>
+                        <p>In this program, we are not going to ask if a thought is "true" or "false." We are going to ask if it is <strong>Workable</strong>. Does listening to this thought help you build the life you want, or does it keep you stuck? Workability is our ultimate measuring stick.</p>
+                    </div>
+
+                    <p>Over the next five weeks, we will train your mind to step back from unhelpful thoughts, ground yourself in the present, and most importantly, take action toward what you actually care about.</p>
+
+                    <h3>How to use this platform</h3>
+                    <ul>
+                        <li><strong>Dedicate Time:</strong> Each module contains reading, active reflection, and interactive exercises. Expect to spend 30–60 minutes per week. This is not a skim-read experience.</li>
+                        <li><strong>Audio Guides:</strong> Find a quiet place to listen to the embedded audio exercises.</li>
+                        <li><strong>Auto-Save:</strong> As you type in the text boxes or select options, your progress is automatically saved to your browser. You can leave and come back anytime.</li>
+                        <li><strong>Sequential Pacing:</strong> To ensure you practise these skills in the real world, modules must be completed sequentially.</li>
+                    </ul>
+
+                    <div style="background:var(--surface-2); padding:2rem; border-radius:var(--r); margin-top:3.5rem; border:1px solid var(--border-light);">
+                        <label style="display:flex;align-items:flex-start;gap:1.25rem;font-weight:600;cursor:pointer;font-size:1.05rem;color:var(--text-dark);">
+                            <input type="checkbox" id="intro-commit" style="width:24px;height:24px;margin-top:2px;flex-shrink:0;accent-color:var(--primary);">
+                            <span>I commit to bringing an open mind, a willingness to experience discomfort, and my full focus to each module of this journey. I am ready to drop the rope.</span>
+                        </label>
+                    </div>
+
+                    <button class="btn-primary" onclick="completeModule(0)">Begin Week 1: Values</button>
                 </div>
-
-                <div class="concept-box">
-                    <h4>Core Concept: Workability</h4>
-                    <p>In this program, we are not going to ask if a thought is "true" or "false." We are going to ask if it is <strong>Workable</strong>. Does listening to this thought help you build the life you want, or does it keep you stuck? Workability is our ultimate measuring stick.</p>
+                
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(0, -1)" id="prev-btn-0" disabled>Previous</button>
+                    <div class="page-dots" id="dots-0"></div>
+                    <button class="btn-page" onclick="changePage(0, 1)" id="next-btn-0">Next</button>
                 </div>
-
-                <p>Over the next five weeks, we will train your mind to step back from unhelpful thoughts, ground yourself in the present, and most importantly, take action toward what you actually care about.</p>
-
-                <h3>How to use this platform</h3>
-                <ul>
-                    <li><strong>Dedicate Time:</strong> Each module contains reading, active reflection, and interactive exercises. Expect to spend 30–60 minutes per week. This is not a skim-read experience.</li>
-                    <li><strong>Audio Guides:</strong> Find a quiet place to listen to the embedded audio exercises.</li>
-                    <li><strong>Auto-Save:</strong> As you type in the text boxes or select options, your progress is automatically saved to your browser. You can leave and come back anytime.</li>
-                    <li><strong>Sequential Pacing:</strong> To ensure you practise these skills in the real world, modules must be completed sequentially.</li>
-                </ul>
-
-                <div style="background:var(--surface-2); padding:1.75rem; border-radius:var(--r); margin-top:3rem; border:1.5px solid var(--border-light);">
-                    <label style="display:flex;align-items:flex-start;gap:1rem;font-weight:600;cursor:pointer;font-size:1rem;color:var(--text-dark);">
-                        <input type="checkbox" id="intro-commit" style="width:22px;height:22px;margin-top:4px;flex-shrink:0;accent-color:var(--primary);">
-                        <span>I commit to bringing an open mind, a willingness to experience discomfort, and my full focus to each module of this journey. I am ready to drop the rope.</span>
-                    </label>
-                </div>
-
-                <button class="btn-primary" onclick="completeModule(0)">Begin Week 1: Values</button>
             </section>
 
             <!-- ===== MODULE 1: VALUES ===== -->
             <section id="mod-1" class="module">
-                <h2>Week 1: Discovering Your Compass</h2>
-                <p>Before we can navigate the storms of the mind, we need to know where we are sailing. In ACT, we differentiate heavily between <strong>Goals</strong>, <strong>Rules</strong>, and <strong>Values</strong>.</p>
+                <div class="step-page active" data-page="1">
+                    <h2>Week 1: Discovering Your Compass</h2>
+                    <p>Before we can navigate the storms of the mind, we need to know where we are sailing. In ACT, we differentiate heavily between <strong>Goals</strong>, <strong>Rules</strong>, and <strong>Values</strong>.</p>
 
-                <p>A <strong>Goal</strong> is a destination. "Getting married," "Losing 10 pounds," or "Getting a promotion." Once you achieve it, it's checked off. The problem with living purely for goals is that if you fail, you feel worthless, and if you succeed, you eventually ask, "Is that all there is?"</p>
+                    <p>A <strong>Goal</strong> is a destination. "Getting married," "Losing 10 pounds," or "Getting a promotion." Once you achieve it, it's checked off. The problem with living purely for goals is that if you fail, you feel worthless, and if you succeed, you eventually ask, "Is that all there is?"</p>
 
-                <p>A <strong>Rule</strong> is a rigid standard. "I must never show weakness," or "I have to be productive every day to be worthy." Rules are rigid and brittle; when they break, we crash.</p>
+                    <p>A <strong>Rule</strong> is a rigid standard. "I must never show weakness," or "I have to be productive every day to be worthy." Rules are rigid and brittle; when they break, we crash.</p>
 
-                <p>A <strong>Value</strong> is a direction on a compass. For example, "Being loving," "Caring for my body," or "Being industrious." You can never "finish" being loving. Even if you don't get the promotion, you can act industriously. Values are always available to you, right in this exact moment, regardless of your external circumstances.</p>
+                    <p>A <strong>Value</strong> is a direction on a compass. For example, "Being loving," "Caring for my body," or "Being industrious." You can never "finish" being loving. Even if you don't get the promotion, you can act industriously. Values are always available to you, right in this exact moment, regardless of your external circumstances.</p>
 
-                <div class="image-placeholder">
-                    <img src="assets/values-compass-diagram.jpg" alt="[Image Placeholder: A visual diagram comparing a Compass (Values) to a Checkered Flag (Goals)]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display:none; padding:2.5rem; background:var(--surface-2); text-align:center; border-radius:var(--r); border:1.5px dashed var(--border);">
-                        <em style="color:var(--text-muted);">[Image Placeholder: Values vs Goals Diagram. Dev: Add 'assets/values-compass-diagram.jpg']</em>
+                    <div class="image-placeholder">
+                        <img src="assets/values-compass-diagram.jpg" alt="[Image Placeholder: A visual diagram comparing a Compass (Values) to a Checkered Flag (Goals)]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display:none; padding:3rem; background:var(--surface-2); text-align:center; border-radius:var(--r); border:1.5px dashed var(--border);">
+                            <em style="color:var(--text-muted);">[Image Placeholder: Values vs Goals Diagram. Dev: Add 'assets/values-compass-diagram.jpg']</em>
+                        </div>
                     </div>
                 </div>
 
-                <h3>Exercise 1: Values Card Sort</h3>
-                <p>Below are common values. Read through them and click to select the <strong>five</strong> that resonate most deeply with how you want to behave as a human being on this planet. Don't pick what you think you <em>should</em> value, pick what actually makes you feel alive.</p>
+                <div class="step-page" data-page="2">
+                    <h3>Exercise 1: Values Card Sort</h3>
+                    <p>Below are common values. Read through them and click to select the <strong>five</strong> that resonate most deeply with how you want to behave as a human being on this planet. Don't pick what you think you <em>should</em> value, pick what actually makes you feel alive.</p>
 
-                <div class="values-grid" id="values-grid"></div>
-                <p style="text-align:right; font-size:.95rem; color:var(--text-muted); font-weight:600; margin-top:.5rem;">Selected: <span id="value-count">0</span> / 5</p>
+                    <div class="values-grid" id="values-grid"></div>
+                    <p style="text-align:right; font-size:1rem; color:var(--text-muted); font-weight:600; margin-top:.5rem;">Selected: <span id="value-count">0</span> / 5</p>
+                </div>
 
-                <h3>Exercise 2: The Role Model Reflection</h3>
-                <p>Sometimes our own values are obscured by our self-doubt, but they are incredibly obvious when we look at people we admire. Think of someone you deeply respect (a friend, a historical figure, a fictional character). Break down the specific qualities they embody below.</p>
+                <div class="step-page" data-page="3">
+                    <h3>Exercise 2: The Role Model Reflection</h3>
+                    <p>Sometimes our own values are obscured by our self-doubt, but they are incredibly obvious when we look at people we admire. Think of someone you deeply respect (a friend, a historical figure, a fictional character). Break down the specific qualities they embody below.</p>
 
-                <div style="background:var(--surface-2); border:1.5px solid var(--border-light); padding:1.75rem; border-radius:var(--r); margin-bottom:2rem;">
-                    <label style="font-weight:600; display:block; margin-bottom:.75rem; font-size:1rem; color:var(--text-dark);">I admire [Person's Name] because they embody…</label>
-                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem;">
-                        <input type="text" id="w1-rm-q1" placeholder="Quality 1 (e.g., Courage)">
-                        <input type="text" id="w1-rm-q2" placeholder="Quality 2 (e.g., Compassion)">
-                        <input type="text" id="w1-rm-q3" placeholder="Quality 3 (e.g., Honesty)">
+                    <div style="background:var(--surface-2); border:1px solid var(--border-light); padding:2rem; border-radius:var(--r); margin-bottom:2rem;">
+                        <label style="font-weight:600; display:block; margin-bottom:1rem; font-size:1.05rem; color:var(--text-dark);">I admire [Person's Name] because they embody…</label>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem;">
+                            <input type="text" id="w1-rm-q1" placeholder="Quality 1 (e.g., Courage)">
+                            <input type="text" id="w1-rm-q2" placeholder="Quality 2 (e.g., Compassion)">
+                            <input type="text" id="w1-rm-q3" placeholder="Quality 3 (e.g., Honesty)">
+                        </div>
                     </div>
-                </div>
-                <p style="font-style:italic; color:var(--text-muted);">Note: The qualities you just wrote down are not just facts about them—they are reflections of your own core values.</p>
-
-                <h3>Exercise 3: The 80th Birthday Visualisation</h3>
-                <p>To deepen this, let's step outside of today's anxieties. Play the audio below, close your eyes, and follow the prompt.</p>
-
-                <div class="media-placeholder">
-                    <h4>🎧 Guided Audio: The 80th Birthday (5:55)</h4>
-                    <audio controls src="assets/audio-80th-birthday.mp3">Your browser does not support audio.</audio>
+                    <p style="font-style:italic; color:var(--text-muted);">Note: The qualities you just wrote down are not just facts about them—they are reflections of your own core values.</p>
                 </div>
 
-                <p>In this visualisation, you imagined what people you care about would say about you at the end of a life well-lived. They didn't talk about your bank account; they talked about your character.</p>
-                <textarea id="w1-q1" rows="4" placeholder="Based on that audio exercise, what words or qualities do you most deeply hope the people in your life associate with you when you are gone?"></textarea>
+                <div class="step-page" data-page="4">
+                    <h3>Exercise 3: The 80th Birthday Visualisation</h3>
+                    <p>To deepen this, let's step outside of today's anxieties. Play the audio below, close your eyes, and follow the prompt.</p>
 
-                <h3>Exercise 4: The Valued Living Domains</h3>
-                <p>Now, let's look at four major domains of life. For each domain, select the value that matters most to you right now, and briefly describe what living that value would actually look like.</p>
+                    <div class="media-placeholder">
+                        <h4>🎧 Guided Audio: The 80th Birthday (5:55)</h4>
+                        <audio controls src="assets/audio-80th-birthday.mp3">Your browser does not support audio.</audio>
+                    </div>
 
-                <div class="domain-box">
-                    <h4>💼 Work / Education <span>(Paid, unpaid, volunteering)</span></h4>
-                    <select id="w1-d1-select">
-                        <option value="" disabled selected>Select a core value for this domain…</option>
-                        <option value="Industriousness">Industriousness &amp; Hard Work</option>
-                        <option value="Creativity">Creativity &amp; Innovation</option>
-                        <option value="Leadership">Leadership &amp; Guidance</option>
-                        <option value="Service">Service &amp; Helping Others</option>
-                        <option value="Curiosity">Curiosity &amp; Continuous Learning</option>
-                        <option value="Reliability">Reliability &amp; Consistency</option>
-                    </select>
-                    <textarea id="w1-d1-text" rows="2" placeholder="What is one small way you could bring this value to your work or studies this week?"></textarea>
+                    <p>In this visualisation, you imagined what people you care about would say about you at the end of a life well-lived. They didn't talk about your bank account; they talked about your character.</p>
+                    <textarea id="w1-q1" rows="4" placeholder="Based on that audio exercise, what words or qualities do you most deeply hope the people in your life associate with you when you are gone?"></textarea>
                 </div>
 
-                <div class="domain-box">
-                    <h4>❤️ Relationships <span>(Family, friends, intimacy)</span></h4>
-                    <select id="w1-d2-select">
-                        <option value="" disabled selected>Select a core value for this domain…</option>
-                        <option value="Compassion">Compassion &amp; Empathy</option>
-                        <option value="Vulnerability">Vulnerability &amp; Openness</option>
-                        <option value="Loyalty">Loyalty &amp; Support</option>
-                        <option value="Fun">Humor, Play &amp; Fun</option>
-                        <option value="Patience">Patience &amp; Understanding</option>
-                        <option value="Boundaries">Respect &amp; Healthy Boundaries</option>
-                    </select>
-                    <textarea id="w1-d2-text" rows="2" placeholder="What is one small way you could bring this value to a relationship this week?"></textarea>
+                <div class="step-page" data-page="5">
+                    <h3>Exercise 4: The Valued Living Domains</h3>
+                    <p>Now, let's look at four major domains of life. For each domain, select the value that matters most to you right now, and briefly describe what living that value would actually look like.</p>
+
+                    <div class="domain-box">
+                        <h4>💼 Work / Education <span>(Paid, unpaid, volunteering)</span></h4>
+                        <select id="w1-d1-select">
+                            <option value="" disabled selected>Select a core value for this domain…</option>
+                            <option value="Industriousness">Industriousness &amp; Hard Work</option>
+                            <option value="Creativity">Creativity &amp; Innovation</option>
+                            <option value="Leadership">Leadership &amp; Guidance</option>
+                            <option value="Service">Service &amp; Helping Others</option>
+                            <option value="Curiosity">Curiosity &amp; Continuous Learning</option>
+                            <option value="Reliability">Reliability &amp; Consistency</option>
+                        </select>
+                        <textarea id="w1-d1-text" rows="2" placeholder="What is one small way you could bring this value to your work or studies this week?"></textarea>
+                    </div>
+
+                    <div class="domain-box">
+                        <h4>❤️ Relationships <span>(Family, friends, intimacy)</span></h4>
+                        <select id="w1-d2-select">
+                            <option value="" disabled selected>Select a core value for this domain…</option>
+                            <option value="Compassion">Compassion &amp; Empathy</option>
+                            <option value="Vulnerability">Vulnerability &amp; Openness</option>
+                            <option value="Loyalty">Loyalty &amp; Support</option>
+                            <option value="Fun">Humor, Play &amp; Fun</option>
+                            <option value="Patience">Patience &amp; Understanding</option>
+                            <option value="Boundaries">Respect &amp; Healthy Boundaries</option>
+                        </select>
+                        <textarea id="w1-d2-text" rows="2" placeholder="What is one small way you could bring this value to a relationship this week?"></textarea>
+                    </div>
+
+                    <div class="domain-box">
+                        <h4>🌱 Personal Growth &amp; Health <span>(Physical wellbeing, spirituality)</span></h4>
+                        <select id="w1-d3-select">
+                            <option value="" disabled selected>Select a core value for this domain…</option>
+                            <option value="Vitality">Vitality &amp; Physical Care</option>
+                            <option value="Spirituality">Spirituality &amp; Connection</option>
+                            <option value="Self-Compassion">Self-Compassion &amp; Kindness</option>
+                            <option value="Courage">Courage &amp; Challenge</option>
+                            <option value="Mindfulness">Mindfulness &amp; Presence</option>
+                        </select>
+                        <textarea id="w1-d3-text" rows="2" placeholder="What is one small way you could bring this value to your physical or mental health this week?"></textarea>
+                    </div>
+
+                    <p>Look at what you've written. The areas where you feel the most psychological pain are usually the areas where you are most disconnected from these values. Pain is just a signal that something important to you is being neglected.</p>
+
+                    <button class="btn-primary" onclick="completeModule(1)">Save Progress &amp; Unlock Week 2</button>
                 </div>
-
-                <div class="domain-box">
-                    <h4>🌱 Personal Growth &amp; Health <span>(Physical wellbeing, spirituality)</span></h4>
-                    <select id="w1-d3-select">
-                        <option value="" disabled selected>Select a core value for this domain…</option>
-                        <option value="Vitality">Vitality &amp; Physical Care</option>
-                        <option value="Spirituality">Spirituality &amp; Connection</option>
-                        <option value="Self-Compassion">Self-Compassion &amp; Kindness</option>
-                        <option value="Courage">Courage &amp; Challenge</option>
-                        <option value="Mindfulness">Mindfulness &amp; Presence</option>
-                    </select>
-                    <textarea id="w1-d3-text" rows="2" placeholder="What is one small way you could bring this value to your physical or mental health this week?"></textarea>
+                
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(1, -1)" id="prev-btn-1" disabled>Previous</button>
+                    <div class="page-dots" id="dots-1"></div>
+                    <button class="btn-page" onclick="changePage(1, 1)" id="next-btn-1">Next</button>
                 </div>
-
-                <p>Look at what you've written. The areas where you feel the most psychological pain are usually the areas where you are most disconnected from these values. Pain is just a signal that something important to you is being neglected.</p>
-
-                <button class="btn-primary" onclick="completeModule(1)">Save Progress &amp; Unlock Week 2</button>
             </section>
 
             <!-- ===== MODULE 2: COMMITTED ACTION ===== -->
             <section id="mod-2" class="module">
-                <h2>Week 2: Taking Committed Action</h2>
-                <p>Welcome back. Last week, we calibrated your compass. This week, we start walking. In ACT, <strong>Committed Action</strong> means taking effective steps guided by your values, even when it brings up psychological discomfort.</p>
+                <div class="step-page active" data-page="1">
+                    <h2>Week 2: Taking Committed Action</h2>
+                    <p>Welcome back. Last week, we calibrated your compass. This week, we start walking. In ACT, <strong>Committed Action</strong> means taking effective steps guided by your values, even when it brings up psychological discomfort.</p>
 
-                <div class="concept-box">
-                    <h4>Core Concept: The Choice Point</h4>
-                    <p>Imagine your life as a constant series of Choice Points—forks in the road. In every moment, you can either make an <strong>"Away" move</strong> or a <strong>"Towards" move</strong>.</p>
-                </div>
-
-                <div class="choice-point-container">
-                    <div class="cp-trigger">Trigger: Feeling Anxious / Overwhelmed</div>
-                    <div class="cp-fork">
-                        <div class="cp-path cp-away">
-                            <h4>Away Moves</h4>
-                            <div class="cp-arrow">←</div>
-                            <p style="font-size:.95rem;">Actions you take to <em>avoid</em> difficult feelings.<br>(e.g., Cancelling plans, doomscrolling, snapping at partner).</p>
-                            <p style="font-size:.85rem; color:#888; margin-top:10px;"><em>Short term: Relief. Long term: Stuck.</em></p>
-                        </div>
-                        <div class="cp-path cp-towards">
-                            <h4>Towards Moves</h4>
-                            <div class="cp-arrow">→</div>
-                            <p style="font-size:.95rem;">Actions guided by <em>values</em>, carrying the difficult feelings with you.<br>(e.g., Going to the event anyway, speaking up).</p>
-                            <p style="font-size:.85rem; color:#555; margin-top:10px;"><em>Short term: Discomfort. Long term: Meaning.</em></p>
-                        </div>
+                    <div class="concept-box">
+                        <h4>Core Concept: The Choice Point</h4>
+                        <p>Imagine your life as a constant series of Choice Points—forks in the road. In every moment, you can either make an <strong>"Away" move</strong> or a <strong>"Towards" move</strong>.</p>
                     </div>
-                </div>
 
-                <div class="callout-box">
-                    <h4>The Passengers on the Bus Metaphor</h4>
-                    <p class="serif-text">Imagine you are driving a bus toward your Values. Along the way, you pick up unruly passengers: anxiety, self-doubt, memories of past failures, and harsh self-judgment.</p>
-                    <p class="serif-text">When you make a "Towards" move, these passengers rush to the front and yell, "You're going to crash! You're a fraud! Turn around!" To quiet them, you might veer off course (an "Away" move) just to keep them happy in the back of the bus.</p>
-                    <p class="serif-text">Committed action is realising you cannot throw them off the bus, but <strong>you are the driver</strong>. They can yell, but they cannot turn the steering wheel.</p>
-                </div>
-
-                <h3>Exercise 1: Identifying Your Passengers</h3>
-                <p>When you think about making a Towards move this week, what specific passengers start yelling at you? Select all that apply:</p>
-
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:2rem;" id="passenger-checkboxes">
-                    <label class="check-list-item"><span>"I'll probably fail anyway." (Fear of Failure)</span><input type="checkbox" id="pass-1"></label>
-                    <label class="check-list-item"><span>"I'm not smart/good enough." (Imposter)</span><input type="checkbox" id="pass-2"></label>
-                    <label class="check-list-item"><span>"I'm too tired right now." (Fatigue)</span><input type="checkbox" id="pass-3"></label>
-                    <label class="check-list-item"><span>"People will judge me." (Judgment)</span><input type="checkbox" id="pass-4"></label>
-                    <label class="check-list-item"><span>"If it's not perfect, don't do it." (Perfectionism)</span><input type="checkbox" id="pass-5"></label>
-                    <label class="check-list-item"><span>"What's the point? It won't matter." (Apathy)</span><input type="checkbox" id="pass-6"></label>
-                </div>
-
-                <textarea id="w2-q1" rows="2" placeholder="Are there any specific, personal passengers (e.g. a specific memory or fear) that show up for you? Name them here."></textarea>
-
-                <h3>Exercise 2: Gradual Stepping Stones</h3>
-                <p>Look at the core values you selected in Week 1: <strong id="w2-reflected-values" class="pill-tag">[Complete Week 1 First]</strong></p>
-                <p>Pick one of these values. Often we fail because we try to take a massive leap instead of a step. Let's break it down using the concept of Workability.</p>
-                <textarea id="w2-step-large"  rows="2" placeholder="The Large Leap (Intimidating): e.g., Run a marathon…"></textarea>
-                <textarea id="w2-step-medium" rows="2" placeholder="The Medium Step: e.g., Run 5k three times a week…"></textarea>
-                <textarea id="w2-step-tiny"   rows="2" placeholder="The Tiny, Workable Step: e.g., Put on my running shoes and walk for 10 minutes today…"></textarea>
-
-                <h3>Exercise 3: Obstacles &amp; Workability Matrix</h3>
-                <p>Before committing to your tiny step, let's predict what will get in the way so you aren't surprised when it happens.</p>
-                <div style="background:var(--surface-2); padding:1.75rem; border:1.5px solid var(--border-light); border-radius:var(--r); margin-bottom:2rem;">
-                    <label style="font-weight:600; color:var(--text-dark);">Internal Barriers (Thoughts / Feelings):</label>
-                    <input type="text" id="w2-obs-int" placeholder="e.g., I will feel totally unmotivated and tired.">
-                    <label style="font-weight:600; display:block; margin-top:1rem; color:var(--text-dark);">External Barriers (Time / Money / Other people):</label>
-                    <input type="text" id="w2-obs-ext" placeholder="e.g., It might rain, or my child might need me.">
-                    <label style="font-weight:600; display:block; margin-top:1rem; color:var(--text-dark);">Workable Solution:</label>
-                    <input type="text" id="w2-obs-sol" placeholder="e.g., If it rains, I will do a 10 min yoga video instead.">
-                </div>
-
-                <h3>Exercise 4: The Willingness Contract &amp; Goal Builder</h3>
-                <p>We are going to build a micro-goal for this week. It needs to be incredibly specific. We want a "Living Goal" (something you actively do), not a "Dead Man's Goal" (something a dead person could do better, like "I won't feel anxious").</p>
-
-                <div class="guided-form">
-                    <h4>Build Your Action Plan</h4>
-
-                    <div class="form-step">
-                        <label>1. Which Value are you focusing on?</label>
-                        <input type="text" id="gb-val" placeholder="e.g., Connection, Courage, Health…">
-                    </div>
-                    <div class="form-step">
-                        <label>2. What is ONE tiny, specific action you can take to serve this value?</label>
-                        <input type="text" id="gb-act" placeholder="e.g., call my brother, walk for 15 minutes, speak up in the meeting…">
-                    </div>
-                    <div style="display:flex; gap:1rem;" class="form-step">
-                        <div style="flex:1;">
-                            <label>3. What day?</label>
-                            <input type="text" id="gb-day" placeholder="e.g., Thursday">
-                        </div>
-                        <div style="flex:1;">
-                            <label>4. What time?</label>
-                            <input type="text" id="gb-time" placeholder="e.g., 6:00 PM">
+                    <div class="choice-point-container">
+                        <div class="cp-trigger">Trigger: Feeling Anxious / Overwhelmed</div>
+                        <div class="cp-fork">
+                            <div class="cp-path cp-away">
+                                <h4>Away Moves</h4>
+                                <div class="cp-arrow">←</div>
+                                <p style="font-size:1rem;">Actions you take to <em>avoid</em> difficult feelings.<br>(e.g., Cancelling plans, doomscrolling, snapping at partner).</p>
+                                <p style="font-size:.9rem; color:var(--text-muted); margin-top:10px;"><em>Short term: Relief. Long term: Stuck.</em></p>
+                            </div>
+                            <div class="cp-path cp-towards">
+                                <h4>Towards Moves</h4>
+                                <div class="cp-arrow">→</div>
+                                <p style="font-size:1rem;">Actions guided by <em>values</em>, carrying the difficult feelings with you.<br>(e.g., Going to the event anyway, speaking up).</p>
+                                <p style="font-size:.9rem; color:var(--success); margin-top:10px;"><em>Short term: Discomfort. Long term: Meaning.</em></p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-step">
-                        <label>5. What difficult feeling are you willing to bring with you (your passenger)?</label>
-                        <input type="text" id="gb-feel" placeholder="e.g., awkwardness, anxiety, fatigue…">
+
+                    <div class="callout-box">
+                        <h4>The Passengers on the Bus Metaphor</h4>
+                        <p class="serif-text">Imagine you are driving a bus toward your Values. Along the way, you pick up unruly passengers: anxiety, self-doubt, memories of past failures, and harsh self-judgment.</p>
+                        <p class="serif-text">When you make a "Towards" move, these passengers rush to the front and yell, "You're going to crash! You're a fraud! Turn around!" To quiet them, you might veer off course (an "Away" move) just to keep them happy in the back of the bus.</p>
+                        <p class="serif-text">Committed action is realising you cannot throw them off the bus, but <strong>you are the driver</strong>. They can yell, but they cannot turn the steering wheel.</p>
+                    </div>
+                </div>
+                 <div class="image-placeholder">
+                                                    <img src="assets/passengers on the bus.jpg" alt="[Image Placeholder: Passengers on the bus]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                                    <div style="display:none; padding:3rem; background:var(--surface-2); text-align:center; border-radius:var(--r); border:1.5px dashed var(--border);">
+                                                        <em style="color:var(--text-muted);">[Image Placeholder: passengers-bus. Dev: Add 'assets/passengers on the bus.jpg']</em>
+                                                        </div>
+                                                    </div>
+                <div class="step-page" data-page="2">
+                    <h3>Exercise 1: Identifying Your Passengers</h3>
+                    <p>When you think about making a Towards move this week, what specific passengers start yelling at you? Select all that apply:</p>
+
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:2.5rem;" id="passenger-checkboxes">
+                        <label class="check-list-item"><span>"I'll probably fail anyway." (Fear of Failure)</span><input type="checkbox" id="pass-1"></label>
+                        <label class="check-list-item"><span>"I'm not smart/good enough." (Imposter)</span><input type="checkbox" id="pass-2"></label>
+                        <label class="check-list-item"><span>"I'm too tired right now." (Fatigue)</span><input type="checkbox" id="pass-3"></label>
+                        <label class="check-list-item"><span>"People will judge me." (Judgment)</span><input type="checkbox" id="pass-4"></label>
+                        <label class="check-list-item"><span>"If it's not perfect, don't do it." (Perfectionism)</span><input type="checkbox" id="pass-5"></label>
+                        <label class="check-list-item"><span>"What's the point? It won't matter." (Apathy)</span><input type="checkbox" id="pass-6"></label>
                     </div>
 
-                    <button onclick="generateGoalSentence()" class="compile-btn">Compile My Contract</button>
+                    <textarea id="w2-q1" rows="3" placeholder="Are there any specific, personal passengers (e.g. a specific memory or fear) that show up for you? Name them here."></textarea>
+                </div>
 
-                    <div style="margin-top:2rem;">
-                        <label style="color:rgba(255,255,255,.75); font-size:.85rem; font-weight:600; letter-spacing:.04em;">Your Official Commitment:</label>
-                        <div class="goal-result" id="goal-output">Fill out the fields above and click compile to generate your contract.</div>
+                <div class="step-page" data-page="3">
+                    <h3>Exercise 2: Gradual Stepping Stones</h3>
+                    <p>Look at the core values you selected in Week 1: <strong id="w2-reflected-values" class="pill-tag">[Complete Week 1 First]</strong></p>
+                    <p>Pick one of these values. Often we fail because we try to take a massive leap instead of a step. Let's break it down using the concept of Workability.</p>
+                    <textarea id="w2-step-large"  rows="2" placeholder="The Large Leap (Intimidating): e.g., Run a marathon…"></textarea>
+                    <textarea id="w2-step-medium" rows="2" placeholder="The Medium Step: e.g., Run 5k three times a week…"></textarea>
+                    <textarea id="w2-step-tiny"   rows="2" placeholder="The Tiny, Workable Step: e.g., Put on my running shoes and walk for 10 minutes today…"></textarea>
+                </div>
+
+                <div class="step-page" data-page="4">
+                    <h3>Exercise 3: Obstacles &amp; Workability Matrix</h3>
+                    <p>Before committing to your tiny step, let's predict what will get in the way so you aren't surprised when it happens.</p>
+                    <div style="background:var(--surface-2); padding:2rem; border:1px solid var(--border-light); border-radius:var(--r); margin-bottom:2.5rem;">
+                        <label style="font-weight:600; color:var(--text-dark);">Internal Barriers (Thoughts / Feelings):</label>
+                        <input type="text" id="w2-obs-int" placeholder="e.g., I will feel totally unmotivated and tired.">
+                        
+                        <label style="font-weight:600; display:block; margin-top:1.25rem; color:var(--text-dark);">External Barriers (Time / Money / Other people):</label>
+                        <input type="text" id="w2-obs-ext" placeholder="e.g., It might rain, or my child might need me.">
+                        
+                        <label style="font-weight:600; display:block; margin-top:1.25rem; color:var(--text-dark);">Workable Solution:</label>
+                        <input type="text" id="w2-obs-sol" placeholder="e.g., If it rains, I will do a 10 min yoga video instead.">
                     </div>
                 </div>
 
-                <p>Your homework this week is to execute this exact action. Remember, the goal is not to feel good while doing it. The goal is to do it <em>even if</em> you feel uncomfortable.</p>
+                <div class="step-page" data-page="5">
+                    <h3>Exercise 4: The Willingness Contract &amp; Goal Builder</h3>
+                    <p>We are going to build a micro-goal for this week. It needs to be incredibly specific. We want a "Living Goal" (something you actively do), not a "Dead Man's Goal" (something a dead person could do better, like "I won't feel anxious").</p>
 
-                <button class="btn-primary" onclick="completeModule(2)">Save Progress &amp; Unlock Week 3</button>
+                    <div class="guided-form">
+                        <h4>Build Your Action Plan</h4>
+
+                        <div class="form-step">
+                            <label>1. Which Value are you focusing on?</label>
+                            <input type="text" id="gb-val" placeholder="e.g., Connection, Courage, Health…">
+                        </div>
+                        <div class="form-step">
+                            <label>2. What is ONE tiny, specific action you can take to serve this value?</label>
+                            <input type="text" id="gb-act" placeholder="e.g., call my brother, walk for 15 minutes, speak up in the meeting…">
+                        </div>
+                        <div style="display:flex; gap:1.25rem;" class="form-step">
+                            <div style="flex:1;">
+                                <label>3. What day?</label>
+                                <input type="text" id="gb-day" placeholder="e.g., Thursday">
+                            </div>
+                            <div style="flex:1;">
+                                <label>4. What time?</label>
+                                <input type="text" id="gb-time" placeholder="e.g., 6:00 PM">
+                            </div>
+                        </div>
+                        <div class="form-step">
+                            <label>5. What difficult feeling are you willing to bring with you (your passenger)?</label>
+                            <input type="text" id="gb-feel" placeholder="e.g., awkwardness, anxiety, fatigue…">
+                        </div>
+
+                        <button onclick="generateGoalSentence()" class="compile-btn">Compile My Contract</button>
+
+                        <div style="margin-top:2.5rem;">
+                            <label style="color:rgba(255,255,255,.8); font-size:.9rem; font-weight:600; letter-spacing:.04em;">Your Official Commitment:</label>
+                            <div class="goal-result" id="goal-output">Fill out the fields above and click compile to generate your contract.</div>
+                        </div>
+                    </div>
+
+                    <p>Your homework this week is to execute this exact action. Remember, the goal is not to feel good while doing it. The goal is to do it <em>even if</em> you feel uncomfortable.</p>
+
+                    <button class="btn-primary" onclick="completeModule(2)">Save Progress &amp; Unlock Week 3</button>
+                </div>
+                
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(2, -1)" id="prev-btn-2" disabled>Previous</button>
+                    <div class="page-dots" id="dots-2"></div>
+                    <button class="btn-page" onclick="changePage(2, 1)" id="next-btn-2">Next</button>
+                </div>
             </section>
 
             <!-- ===== MODULE 3: PRESENT MOMENT ===== -->
             <section id="mod-3" class="module">
-                <h2>Week 3: Waking Up to the Here and Now</h2>
-                <p>You've identified your values and committed to action. But have you noticed that much of the time, you aren't actually "here" to experience your life?</p>
+                <div class="step-page active" data-page="1">
+                    <h2>Week 3: Waking Up to the Here and Now</h2>
+                    <p>You've identified your values and committed to action. But have you noticed that much of the time, you aren't actually "here" to experience your life?</p>
 
-                <p>Our minds are incredible time-travelling machines. But they rarely travel to pleasant places. Most of our psychological suffering occurs when we get trapped in:</p>
-                <ul>
-                    <li><strong>The Conceptualised Future:</strong> Worrying about what <em>might</em> happen, anticipating disaster, rehearsing arguments that haven't occurred. (This is where Anxiety lives).</li>
-                    <li><strong>The Conceptualised Past:</strong> Ruminating on what <em>did</em> happen, regretting past choices, playing memories on loop. (This is where Depression often lives).</li>
-                </ul>
+                    <p>Our minds are incredible time-travelling machines. But they rarely travel to pleasant places. Most of our psychological suffering occurs when we get trapped in:</p>
+                    <ul>
+                        <li><strong>The Conceptualised Future:</strong> Worrying about what <em>might</em> happen, anticipating disaster, rehearsing arguments that haven't occurred. (This is where Anxiety lives).</li>
+                        <li><strong>The Conceptualised Past:</strong> Ruminating on what <em>did</em> happen, regretting past choices, playing memories on loop. (This is where Depression often lives).</li>
+                    </ul>
 
-                <p>The only place you have any power to take action is right here, right now. In ACT, we don't practise mindfulness to achieve a state of "zen" or relaxation. We practise it simply to wake up at the steering wheel so we can steer the bus.</p>
-
-                <h3>Exercise 1: Dropping Anchor (5-4-3-2-1)</h3>
-                <p>When an emotional storm hits, you don't try to stop the storm (that's impossible). You drop an anchor to keep your boat steady until the storm passes. We use our five physical senses as the anchor.</p>
-                <p>Do this exercise right now, physically in the room you are in. Look around. Check the boxes as you complete each step.</p>
-
-                <div style="display:flex; flex-direction:column; gap:.5rem; margin:2rem 0;">
-                    <label class="check-list-item">
-                        <span><strong>👀 5 Things you can see:</strong> Look for details you normally ignore (a shadow, a crack in the wall, a specific texture). Name them mentally.</span>
-                        <input type="checkbox" id="g-see">
-                    </label>
-                    <label class="check-list-item">
-                        <span><strong>🤚 4 Things you can feel:</strong> Notice the weight of your body in the chair, the fabric of your clothes on your skin, the temperature of the air.</span>
-                        <input type="checkbox" id="g-feel">
-                    </label>
-                    <label class="check-list-item">
-                        <span><strong>👂 3 Things you can hear:</strong> Listen past the obvious noises. Can you hear the hum of a fridge? Traffic outside? Your own breath?</span>
-                        <input type="checkbox" id="g-hear">
-                    </label>
-                    <label class="check-list-item">
-                        <span><strong>👃 2 Things you can smell:</strong> Notice any scents, or simply the smell of the air entering your nose.</span>
-                        <input type="checkbox" id="g-smell">
-                    </label>
-                    <label class="check-list-item">
-                        <span><strong>👅 1 Thing you can taste:</strong> Swallow, notice the lingering taste in your mouth.</span>
-                        <input type="checkbox" id="g-taste">
-                    </label>
+                    <p>The only place you have any power to take action is right here, right now. In ACT, we don't practise mindfulness to achieve a state of "zen" or relaxation. We practise it simply to wake up at the steering wheel so we can steer the bus.</p>
                 </div>
+                 <div class="image-placeholder">
+                                    <img src="assets/conceptualised-time.jpg" alt="[Image Placeholder: A visual example of conceptualised time]" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <div style="display:none; padding:3rem; background:var(--surface-2); text-align:center; border-radius:var(--r); border:1.5px dashed var(--border);">
+                                        <em style="color:var(--text-muted);">[Image Placeholder: conceptualised-time. Dev: Add 'assets/conceptualised-time.jpg']</em>
+                                        </div>
+                                    </div>
+                <div class="step-page" data-page="2">
+                    <h3>Exercise 1: Dropping Anchor (5-4-3-2-1)</h3>
+                    <p>When an emotional storm hits, you don't try to stop the storm (that's impossible). You drop an anchor to keep your boat steady until the storm passes. We use our five physical senses as the anchor.</p>
+                    <p>Do this exercise right now, physically in the room you are in. Look around. Check the boxes as you complete each step.</p>
 
-                <h3>Exercise 2: The Quick 3-Zone Body Scan</h3>
-                <p>We often carry our psychological stress in our physical body without noticing. Click through the zones below to do a rapid, active grounding scan.</p>
-
-                <div style="background:var(--surface); border:1.5px solid var(--border-light); border-radius:var(--r); overflow:hidden; margin-bottom:2rem;">
-                    <div class="scan-tabs">
-                        <button class="scan-tab active" onclick="openScan(event,'scan-jaw')">1. Jaw &amp; Eyes</button>
-                        <button class="scan-tab" onclick="openScan(event,'scan-shoulders')">2. Shoulders</button>
-                        <button class="scan-tab" onclick="openScan(event,'scan-belly')">3. Belly</button>
-                    </div>
-
-                    <div id="scan-jaw" class="scan-content active">
-                        <h4>Focus on your face.</h4>
-                        <p>Are your teeth clenched? Is your tongue pressed against the roof of your mouth? Are you squinting your eyes slightly? <strong>Action:</strong> Let your lower jaw drop slightly. Soften the space between your eyebrows.</p>
-                    </div>
-                    <div id="scan-shoulders" class="scan-content">
-                        <h4>Focus on your neck and shoulders.</h4>
-                        <p>Are your shoulders creeping up toward your ears in a defensive posture? <strong>Action:</strong> On your next exhale, actively drop your shoulders down an inch. Imagine the tension draining down your arms and out your fingertips.</p>
-                    </div>
-                    <div id="scan-belly" class="scan-content">
-                        <h4>Focus on your abdomen.</h4>
-                        <p>Are you sucking your stomach in or breathing very shallowly in your chest? <strong>Action:</strong> Let your belly go completely soft. Take one breath so deep that only your belly expands, not your chest.</p>
+                    <div style="display:flex; flex-direction:column; gap:.75rem; margin:2.5rem 0;">
+                        <label class="check-list-item">
+                            <span><strong>👀 5 Things you can see:</strong> Look for details you normally ignore (a shadow, a crack in the wall, a specific texture). Name them mentally.</span>
+                            <input type="checkbox" id="g-see">
+                        </label>
+                        <label class="check-list-item">
+                            <span><strong>🤚 4 Things you can feel:</strong> Notice the weight of your body in the chair, the fabric of your clothes on your skin, the temperature of the air.</span>
+                            <input type="checkbox" id="g-feel">
+                        </label>
+                        <label class="check-list-item">
+                            <span><strong>👂 3 Things you can hear:</strong> Listen past the obvious noises. Can you hear the hum of a fridge? Traffic outside? Your own breath?</span>
+                            <input type="checkbox" id="g-hear">
+                        </label>
+                        <label class="check-list-item">
+                            <span><strong>👃 2 Things you can smell:</strong> Notice any scents, or simply the smell of the air entering your nose.</span>
+                            <input type="checkbox" id="g-smell">
+                        </label>
+                        <label class="check-list-item">
+                            <span><strong>👅 1 Thing you can taste:</strong> Swallow, notice the lingering taste in your mouth.</span>
+                            <input type="checkbox" id="g-taste">
+                        </label>
                     </div>
                 </div>
 
-                <h3>Exercise 3: Formal Practice</h3>
-                <p>While grounding is for moments of stress, formal mindfulness builds the "muscle" of present-moment awareness. The goal is NOT to empty your mind of thoughts. The goal is simply to notice when your mind wanders, and gently bring it back.</p>
+                <div class="step-page" data-page="3">
+                    <h3>Exercise 2: The Quick 3-Zone Body Scan</h3>
+                    <p>We often carry our psychological stress in our physical body without noticing. Click through the zones below to do a rapid, active grounding scan.</p>
 
-                <div class="media-placeholder">
-                    <h4>🎧 Guided Audio: Mindful Breathing (06:14)</h4>
-                    <audio controls src="assets/audio-mindfulness.mp3">Your browser does not support audio.</audio>
+                    <div style="background:var(--surface); border:1px solid var(--border-light); border-radius:var(--r); overflow:hidden; margin-bottom:2.5rem;">
+                        <div class="scan-tabs">
+                            <button class="scan-tab active" onclick="openScan(event,'scan-jaw')">1. Jaw &amp; Eyes</button>
+                            <button class="scan-tab" onclick="openScan(event,'scan-shoulders')">2. Shoulders</button>
+                            <button class="scan-tab" onclick="openScan(event,'scan-belly')">3. Belly</button>
+                        </div>
+
+                        <div id="scan-jaw" class="scan-content active">
+                            <h4>Focus on your face.</h4>
+                            <p>Are your teeth clenched? Is your tongue pressed against the roof of your mouth? Are you squinting your eyes slightly? <strong>Action:</strong> Let your lower jaw drop slightly. Soften the space between your eyebrows.</p>
+                        </div>
+                        <div id="scan-shoulders" class="scan-content">
+                            <h4>Focus on your neck and shoulders.</h4>
+                            <p>Are your shoulders creeping up toward your ears in a defensive posture? <strong>Action:</strong> On your next exhale, actively drop your shoulders down an inch. Imagine the tension draining down your arms and out your fingertips.</p>
+                        </div>
+                        <div id="scan-belly" class="scan-content">
+                            <h4>Focus on your abdomen.</h4>
+                            <p>Are you sucking your stomach in or breathing very shallowly in your chest? <strong>Action:</strong> Let your belly go completely soft. Take one breath so deep that only your belly expands, not your chest.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <h3>Exercise 4: Direct Experience vs. The Narrative</h3>
-                <p>There is a profound difference between "experiencing" the world and "thinking about" the world. Right now, hold an object near you (a pen, a mug, your phone, or even your own hand).</p>
-                <textarea id="w3-q1" rows="3" placeholder="Describe the purely physical sensations of the object (temperature, weight, texture) without using judgments. (e.g. 'It is cold, smooth, weighs about 200 grams')."></textarea>
-                <textarea id="w3-q2" rows="3" placeholder="Now, what 'story' or thoughts does your mind automatically generate about this object? (e.g., 'I bought this in Paris', 'I need to wash this', 'It's ugly')."></textarea>
+                <div class="step-page" data-page="4">
+                    <h3>Exercise 3: Formal Practice</h3>
+                    <p>While grounding is for moments of stress, formal mindfulness builds the "muscle" of present-moment awareness. The goal is NOT to empty your mind of thoughts. The goal is simply to notice when your mind wanders, and gently bring it back.</p>
 
-                <p>Notice the difference? One is direct, raw experience in the present moment; the other is language and judgment generated by your mind. Throughout this week, practise shifting from language back to direct experience during mundane tasks like washing dishes or taking a shower.</p>
+                    <div class="media-placeholder">
+                        <h4>🎧 Guided Audio: Mindful Breathing (06:14)</h4>
+                        <audio controls src="assets/audio-mindfulness.mp3">Your browser does not support audio.</audio>
+                    </div>
+                </div>
 
-                <button class="btn-primary" onclick="completeModule(3)">Save Progress &amp; Unlock Week 4</button>
+                <div class="step-page" data-page="5">
+                    <h3>Exercise 4: Direct Experience vs. The Narrative</h3>
+                    <p>There is a profound difference between "experiencing" the world and "thinking about" the world. Right now, hold an object near you (a pen, a mug, your phone, or even your own hand).</p>
+                    <textarea id="w3-q1" rows="3" placeholder="Describe the purely physical sensations of the object (temperature, weight, texture) without using judgments. (e.g. 'It is cold, smooth, weighs about 200 grams')."></textarea>
+                    <textarea id="w3-q2" rows="3" placeholder="Now, what 'story' or thoughts does your mind automatically generate about this object? (e.g., 'I bought this in Paris', 'I need to wash this', 'It's ugly')."></textarea>
+
+                    <p>Notice the difference? One is direct, raw experience in the present moment; the other is language and judgment generated by your mind. Throughout this week, practise shifting from language back to direct experience during mundane tasks like washing dishes or taking a shower.</p>
+
+                    <button class="btn-primary" onclick="completeModule(3)">Save Progress &amp; Unlock Week 4</button>
+                </div>
+
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(3, -1)" id="prev-btn-3" disabled>Previous</button>
+                    <div class="page-dots" id="dots-3"></div>
+                    <button class="btn-page" onclick="changePage(3, 1)" id="next-btn-3">Next</button>
+                </div>
             </section>
 
             <!-- ===== MODULE 4: DEFUSION ===== -->
             <section id="mod-4" class="module">
-                <h2>Week 4: Untangling from Thoughts</h2>
-                <p>The human mind is a problem-solving machine designed to keep us alive. It evolved to constantly look for danger. But in the modern world, it treats thoughts like "I might fail this interview" with the exact same physiological alarm as "There is a tiger outside."</p>
+                <div class="step-page active" data-page="1">
+                    <h2>Week 4: Untangling from Thoughts</h2>
+                    <p>The human mind is a problem-solving machine designed to keep us alive. It evolved to constantly look for danger. But in the modern world, it treats thoughts like "I might fail this interview" with the exact same physiological alarm as "There is a tiger outside."</p>
 
-                <p>In ACT, we talk about being <strong>"Hooked"</strong> (also known as Cognitive Fusion). When we are hooked, we believe our thoughts are absolute truths, commands we must obey, or realities we are trapped in. We view the world <em>from</em> our thoughts.</p>
+                    <p>In ACT, we talk about being <strong>"Hooked"</strong> (also known as Cognitive Fusion). When we are hooked, we believe our thoughts are absolute truths, commands we must obey, or realities we are trapped in. We view the world <em>from</em> our thoughts.</p>
 
-                <p>The antidote is <strong>"Unhooking"</strong> (Cognitive Defusion). Unhooking is stepping back. It's looking <em>at</em> thoughts rather than looking <em>from</em> them. We recognise that thoughts are just words, sounds, and pictures popping up in our heads.</p>
+                    <p>The antidote is <strong>"Unhooking"</strong> (Cognitive Defusion). Unhooking is stepping back. It's looking <em>at</em> thoughts rather than looking <em>from</em> them. We recognise that thoughts are just words, sounds, and pictures popping up in our heads.</p>
 
-                <div class="concept-box">
-                    <h4>Core Concept: Perspective-Taking (The Observer Self)</h4>
-                    <p>If you are not your thoughts, who are you? You are the observer of the thoughts. Think of a chessboard. The white pieces are your positive thoughts. The black pieces are your negative thoughts. Most of our lives, we fight on the board, trying to make the white pieces defeat the black pieces.</p>
-                    <p>But you are not the pieces. <strong>You are the board.</strong> The board doesn't care who wins; it simply provides the space for the game to happen. You are the space where your thoughts occur.</p>
-                </div>
-
-                <h3>Exercise 1: Unhooking Playground</h3>
-                <p>Unhooking often feels playful, sometimes even silly. By changing the <em>context</em> of a thought, we strip away its emotional power without trying to change its content. Click the flashcards below to explore six different unhooking techniques.</p>
-
-                <div class="flashcard-container">
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>1. Name the Story</h4>
-                        <div class="content">Our minds tell the same stories repeatedly. "Ah, here goes the 'I'm an Imposter' story again." Acknowledge it like an old, boring movie playing on TV.</div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>2. "I am having the thought that…"</h4>
-                        <div class="content">Instead of saying "I am a failure" (which feels like a fact), say aloud: "I notice I am having the thought that I am a failure." This inserts a wedge of space.</div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>3. The Silly Voice</h4>
-                        <div class="content">Take a harsh self-critical thought and say it in your head using the voice of a cartoon character (like Mickey Mouse or Yoda). Notice how it loses its threat level.</div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>4. Sing it to "Happy Birthday"</h4>
-                        <div class="content">Take your painful thought ("Nobody likes me") and mentally sing it to the tune of Happy Birthday. It breaks the illusion of the thought as a serious threat.</div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>5. Thank Your Mind</h4>
-                        <div class="content">When your mind gives you a terrible worst-case scenario, say, "Thank you, mind! I know you're just trying to protect me, but I've got this." Treat your mind like an overprotective friend.</div>
-                    </div>
-                    <div class="flashcard" onclick="this.classList.toggle('open')">
-                        <h4>6. The Computer Screen</h4>
-                        <div class="content">Visualise your negative thought written in a specific font and colour on a computer screen. Now imagine changing the font to Comic Sans, changing the colour to neon pink, and shrinking it.</div>
+                    <div class="concept-box">
+                        <h4>Core Concept: Perspective-Taking (The Observer Self)</h4>
+                        <p>If you are not your thoughts, who are you? You are the observer of the thoughts. Think of a chessboard. The white pieces are your positive thoughts. The black pieces are your negative thoughts. Most of our lives, we fight on the board, trying to make the white pieces defeat the black pieces.</p>
+                        <p>But you are not the pieces. <strong>You are the board.</strong> The board doesn't care who wins; it simply provides the space for the game to happen. You are the space where your thoughts occur.</p>
                     </div>
                 </div>
 
-                <h3>Exercise 2: The Chessboard Editor</h3>
-                <p>To prove that thoughts are just constructed objects (not reality), let's manipulate them. Enter a positive thought and a negative thought, then use the identical controls to alter their size, font, and opacity.</p>
+                <div class="step-page" data-page="2">
+                    <h3>Exercise 1: Unhooking Playground</h3>
+                    <p>Unhooking often feels playful, sometimes even silly. By changing the <em>context</em> of a thought, we strip away its emotional power without trying to change its content. Click the flashcards below to explore six different unhooking techniques.</p>
 
-                <div class="chess-editor">
-                    <div class="chess-panel chess-white">
-                        <h4>The White Piece (Positive)</h4>
-                        <input type="text" id="chess-white-input" placeholder="e.g., I am capable…" oninput="updateChess('white')" style="background:var(--surface-2); border-color:var(--border);">
-                        <div class="chess-display" id="chess-white-disp">I am capable</div>
-
-                        <div class="control-group">
-                            <label>Font Style</label>
-                            <select id="chess-white-font" onchange="updateChess('white')">
-                                <option value="'Jost', sans-serif">Modern (Jost)</option>
-                                <option value="'Courier Prime', monospace">Typewriter</option>
-                                <option value="'Comic Neue', cursive">Comic</option>
-                                <option value="'Creepster', cursive">Spooky</option>
-                                <option value="Impact, sans-serif">Impact</option>
-                            </select>
+                    <div class="flashcard-container">
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>1. Name the Story</h4>
+                            <div class="content">Our minds tell the same stories repeatedly. "Ah, here goes the 'I'm an Imposter' story again." Acknowledge it like an old, boring movie playing on TV.</div>
                         </div>
-                        <div class="control-group">
-                            <label>Size</label>
-                            <input type="range" id="chess-white-size" min="10" max="45" value="24" oninput="updateChess('white')">
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>2. "I am having the thought that…"</h4>
+                            <div class="content">Instead of saying "I am a failure" (which feels like a fact), say aloud: "I notice I am having the thought that I am a failure." This inserts a wedge of space.</div>
                         </div>
-                        <div class="control-group">
-                            <label>Fade Out (Opacity)</label>
-                            <input type="range" id="chess-white-opac" min="10" max="100" value="100" oninput="updateChess('white')">
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>3. The Silly Voice</h4>
+                            <div class="content">Take a harsh self-critical thought and say it in your head using the voice of a cartoon character (like Mickey Mouse or Yoda). Notice how it loses its threat level.</div>
                         </div>
-                    </div>
-
-                    <div class="chess-panel chess-black">
-                        <h4>The Black Piece (Negative)</h4>
-                        <input type="text" id="chess-black-input" placeholder="e.g., I am going to fail…" oninput="updateChess('black')" style="background:rgba(255,255,255,.07); color:white; border-color:rgba(255,255,255,.14);">
-                        <div class="chess-display" id="chess-black-disp">I am going to fail</div>
-
-                        <div class="control-group">
-                            <label>Font Style</label>
-                            <select id="chess-black-font" onchange="updateChess('black')">
-                                <option value="'Jost', sans-serif">Modern (Jost)</option>
-                                <option value="'Courier Prime', monospace">Typewriter</option>
-                                <option value="'Comic Neue', cursive">Comic</option>
-                                <option value="'Creepster', cursive">Spooky</option>
-                                <option value="Impact, sans-serif">Impact</option>
-                            </select>
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>4. Sing it to "Happy Birthday"</h4>
+                            <div class="content">Take your painful thought ("Nobody likes me") and mentally sing it to the tune of Happy Birthday. It breaks the illusion of the thought as a serious threat.</div>
                         </div>
-                        <div class="control-group">
-                            <label>Size</label>
-                            <input type="range" id="chess-black-size" min="10" max="45" value="24" oninput="updateChess('black')">
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>5. Thank Your Mind</h4>
+                            <div class="content">When your mind gives you a terrible worst-case scenario, say, "Thank you, mind! I know you're just trying to protect me, but I've got this." Treat your mind like an overprotective friend.</div>
                         </div>
-                        <div class="control-group">
-                            <label>Fade Out (Opacity)</label>
-                            <input type="range" id="chess-black-opac" min="10" max="100" value="100" oninput="updateChess('black')">
+                        <div class="flashcard" onclick="this.classList.toggle('open')">
+                            <h4>6. The Computer Screen</h4>
+                            <div class="content">Visualise your negative thought written in a specific font and colour on a computer screen. Now imagine changing the font to Comic Sans, changing the colour to neon pink, and shrinking it.</div>
                         </div>
                     </div>
                 </div>
-                <p><em>Notice how changing the font to something silly or lowering the opacity immediately changes your relationship to the thought. It is just data. You are the screen displaying it.</em></p>
 
-                <h3>Exercise 3: Leaves on a Stream</h3>
-                <p>This is a foundational ACT exercise for creating distance from your thoughts. Try this audio exercise now.</p>
-                <div class="media-placeholder">
-                    <h4>🎧 Guided Audio: Leaves on a Stream (05:52)</h4>
-                    <audio controls src="assets/audio-leaves.mp3">Your browser does not support audio.</audio>
+                <div class="step-page" data-page="3">
+                    <h3>Exercise 2: The Chessboard Editor</h3>
+                    <p>To prove that thoughts are just constructed objects (not reality), let's manipulate them. Enter a positive thought and a negative thought, then use the identical controls to alter their size, font, and opacity.</p>
+
+                    <div class="chess-editor">
+                        <div class="chess-panel chess-white">
+                            <h4>The White Piece (Positive)</h4>
+                            <input type="text" id="chess-white-input" placeholder="e.g., I am capable…" oninput="updateChess('white')" style="background:var(--surface-2); border-color:var(--border);">
+                            <div class="chess-display" id="chess-white-disp">I am capable</div>
+
+                            <div class="control-group">
+                                <label>Font Style</label>
+                                <select id="chess-white-font" onchange="updateChess('white')">
+                                    <option value="'Jost', sans-serif">Modern (Jost)</option>
+                                    <option value="'Courier Prime', monospace">Typewriter</option>
+                                    <option value="'Comic Neue', cursive">Comic</option>
+                                    <option value="'Creepster', cursive">Spooky</option>
+                                    <option value="Impact, sans-serif">Impact</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label>Size</label>
+                                <input type="range" id="chess-white-size" min="10" max="45" value="24" oninput="updateChess('white')">
+                            </div>
+                            <div class="control-group">
+                                <label>Fade Out (Opacity)</label>
+                                <input type="range" id="chess-white-opac" min="10" max="100" value="100" oninput="updateChess('white')">
+                            </div>
+                        </div>
+
+                        <div class="chess-panel chess-black">
+                            <h4>The Black Piece (Negative)</h4>
+                            <input type="text" id="chess-black-input" placeholder="e.g., I am going to fail…" oninput="updateChess('black')" style="background:rgba(255,255,255,.07); color:white; border-color:rgba(255,255,255,.14);">
+                            <div class="chess-display" id="chess-black-disp">I am going to fail</div>
+
+                            <div class="control-group">
+                                <label>Font Style</label>
+                                <select id="chess-black-font" onchange="updateChess('black')">
+                                    <option value="'Jost', sans-serif">Modern (Jost)</option>
+                                    <option value="'Courier Prime', monospace">Typewriter</option>
+                                    <option value="'Comic Neue', cursive">Comic</option>
+                                    <option value="'Creepster', cursive">Spooky</option>
+                                    <option value="Impact, sans-serif">Impact</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <label>Size</label>
+                                <input type="range" id="chess-black-size" min="10" max="45" value="24" oninput="updateChess('black')">
+                            </div>
+                            <div class="control-group">
+                                <label>Fade Out (Opacity)</label>
+                                <input type="range" id="chess-black-opac" min="10" max="100" value="100" oninput="updateChess('black')">
+                            </div>
+                        </div>
+                    </div>
+                    <p><em>Notice how changing the font to something silly or lowering the opacity immediately changes your relationship to the thought. It is just data. You are the screen displaying it.</em></p>
                 </div>
 
-                <textarea id="w4-q1" rows="4" placeholder="Write down a harsh, recurring thought. Now, practise unhooking from it. Write: 'I am the chessboard. I notice the piece [insert thought] is moving around, but I am the board beneath it.'"></textarea>
+                <div class="step-page" data-page="4">
+                    <h3>Exercise 3: Leaves on a Stream</h3>
+                    <p>This is a foundational ACT exercise for creating distance from your thoughts. Try this audio exercise now.</p>
+                    <div class="media-placeholder">
+                        <h4>🎧 Guided Audio: Leaves on a Stream (05:52)</h4>
+                        <audio controls src="assets/audio-leaves.mp3">Your browser does not support audio.</audio>
+                    </div>
 
-                <button class="btn-primary" onclick="completeModule(4)">Save Progress &amp; Unlock Week 5</button>
+                    <textarea id="w4-q1" rows="4" placeholder="Write down a harsh, recurring thought. Now, practise unhooking from it. Write: 'I am the chessboard. I notice the piece [insert thought] is moving around, but I am the board beneath it.'"></textarea>
+
+                    <button class="btn-primary" onclick="completeModule(4)">Save Progress &amp; Unlock Week 5</button>
+                </div>
+                
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(4, -1)" id="prev-btn-4" disabled>Previous</button>
+                    <div class="page-dots" id="dots-4"></div>
+                    <button class="btn-page" onclick="changePage(4, 1)" id="next-btn-4">Next</button>
+                </div>
             </section>
 
             <!-- ===== MODULE 5: ACCEPTANCE ===== -->
             <section id="mod-5" class="module">
-                <h2>Week 5: Acceptance &amp; Self-Compassion</h2>
-                <p>You have learned to identify values, take action, ground in the present, and untangle from thoughts. The final piece is <strong>Acceptance</strong> (often called Expansion)—which simply means making room for painful feelings rather than fighting them.</p>
+                <div class="step-page active" data-page="1">
+                    <h2>Week 5: Acceptance &amp; Self-Compassion</h2>
+                    <p>You have learned to identify values, take action, ground in the present, and untangle from thoughts. The final piece is <strong>Acceptance</strong> (often called Expansion)—which simply means making room for painful feelings rather than fighting them.</p>
 
-                <div class="concept-box">
-                    <h4>Core Concept: Experiential Avoidance</h4>
-                    <p>Much of our suffering comes from <em>Experiential Avoidance</em>—our desperate attempts to push away sadness, anxiety, boredom, or grief. We use alcohol, endless scrolling on our phones, isolation, or overworking to avoid feeling bad. But running from pain just creates a second layer of suffering: the suffering of the struggle itself. Acceptance is the exact opposite of avoidance. It is turning toward the pain.</p>
+                    <div class="concept-box">
+                        <h4>Core Concept: Experiential Avoidance</h4>
+                        <p>Much of our suffering comes from <em>Experiential Avoidance</em>—our desperate attempts to push away sadness, anxiety, boredom, or grief. We use alcohol, endless scrolling on our phones, isolation, or overworking to avoid feeling bad. But running from pain just creates a second layer of suffering: the suffering of the struggle itself. Acceptance is the exact opposite of avoidance. It is turning toward the pain.</p>
+                    </div>
+
+                    <h3>The Struggle Switch</h3>
+                    <p>Dr. Russ Harris uses the metaphor of the Struggle Switch to explain Clean vs. Dirty pain. Interact with the switch below.</p>
+
+                    <div class="switch-container">
+                        <div class="switch-wrapper">
+                            <label class="switch">
+                                <input type="checkbox" id="struggle-switch" checked onchange="toggleStruggle()">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div id="switch-text-panel">
+                            <div id="switch-status">SWITCH IS ON: FIGHTING THE FEELING</div>
+                            <div id="switch-desc">Anxiety shows up (Clean Pain). You hate it. You tense up. You fight it. You worry about why you're anxious. The anxiety amplifies into panic and exhaustion (Dirty Pain). You are trapped.</div>
+                        </div>
+                    </div>
+
+                    <p>Acceptance doesn't mean you <em>like</em> the feeling. It just means you drop the rope. You allow the clean pain to be there, without generating the dirty pain of fighting it.</p>
                 </div>
 
-                <h3>The Struggle Switch</h3>
-                <p>Dr. Russ Harris uses the metaphor of the Struggle Switch to explain Clean vs. Dirty pain. Interact with the switch below.</p>
+                <div class="step-page" data-page="2">
+                    <h3>The Willingness Dial</h3>
+                    <p>Once you turn the struggle switch off, you can begin to turn the Willingness Dial up. Willingness means: "How open am I to experiencing this feeling right now, in order to live my values?"</p>
 
-                <div class="switch-container">
-                    <div class="switch-wrapper">
-                        <label class="switch">
-                            <input type="checkbox" id="struggle-switch" checked onchange="toggleStruggle()">
-                            <span class="slider"></span>
-                        </label>
+                    <div class="dial-box">
+                        <div class="dial-interaction-area" id="dial-interaction-area">
+                            <div class="dial-labels">
+                                <div class="dial-label-0">0</div>
+                                <div class="dial-label-10">10</div>
+                            </div>
+                            <div class="willingness-knob" id="willingness-knob" style="transform:rotate(-135deg);">
+                                <div class="knob-dot"></div>
+                            </div>
+                        </div>
+                        <div class="dial-value-display" id="dial-val-text">0</div>
+                        <p id="dial-desc" style="font-weight:600; color:var(--text-dark); font-size:1.15rem; margin-top:.75rem;">I am completely shut down to this feeling.</p>
+                        <input type="hidden" id="willingness-dial-hidden" value="0">
                     </div>
-                    <div id="switch-text-panel">
-                        <div id="switch-status">SWITCH IS ON: FIGHTING THE FEELING</div>
-                        <div id="switch-desc">Anxiety shows up (Clean Pain). You hate it. You tense up. You fight it. You worry about why you're anxious. The anxiety amplifies into panic and exhaustion (Dirty Pain). You are trapped.</div>
-                    </div>
+
+                    <textarea id="w5-dial-text" rows="2" placeholder="What would turning the dial up by just +1 look like right now?"></textarea>
                 </div>
 
-                <p>Acceptance doesn't mean you <em>like</em> the feeling. It just means you drop the rope. You allow the clean pain to be there, without generating the dirty pain of fighting it.</p>
+                <div class="step-page" data-page="3">
+                    <h3>Exercise 1: Physicalising the Emotion</h3>
+                    <p>Instead of fighting a feeling, try studying it like a curious scientist. Think of something mildly stressful right now, and locate the physical feeling in your body.</p>
 
-                <h3>The Willingness Dial</h3>
-                <p>Once you turn the struggle switch off, you can begin to turn the Willingness Dial up. Willingness means: "How open am I to experiencing this feeling right now, in order to live my values?"</p>
-
-                <div class="dial-box">
-                    <div class="dial-interaction-area" id="dial-interaction-area">
-                        <div class="dial-labels">
-                            <div class="dial-label-0">0</div>
-                            <div class="dial-label-10">10</div>
+                    <div style="background:var(--surface); border:1px solid var(--border-light); padding:2.5rem; border-radius:var(--r); margin-bottom:2.5rem;">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div>
+                                <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">Where is it located?</label>
+                                <input type="text" id="p-loc" placeholder="e.g., tight chest, knot in stomach">
+                            </div>
+                            <div>
+                                <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a shape, what would it be?</label>
+                                <select id="p-shape" onchange="checkCustom('p-shape')">
+                                    <option>A jagged rock</option>
+                                    <option>A heavy sphere</option>
+                                    <option>A dark cloud</option>
+                                    <option>A tight band</option>
+                                    <option>A fluttering bird</option>
+                                    <option value="custom">Other (write my own)…</option>
+                                </select>
+                                <input type="text" id="p-shape-custom" class="custom-input" placeholder="Type custom shape…">
+                            </div>
+                            <div>
+                                <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a temperature?</label>
+                                <select id="p-temp" onchange="checkCustom('p-temp')">
+                                    <option>Burning hot</option>
+                                    <option>Ice cold</option>
+                                    <option>Lukewarm</option>
+                                    <option>Radiating heat</option>
+                                    <option value="custom">Other (write my own)…</option>
+                                </select>
+                                <input type="text" id="p-temp-custom" class="custom-input" placeholder="Type custom temperature…">
+                            </div>
+                            <div>
+                                <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a texture?</label>
+                                <select id="p-text" onchange="checkCustom('p-text')">
+                                    <option>Sharp and prickly</option>
+                                    <option>Heavy and dense</option>
+                                    <option>Hollow and empty</option>
+                                    <option>Slimy or sticky</option>
+                                    <option value="custom">Other (write my own)…</option>
+                                </select>
+                                <input type="text" id="p-text-custom" class="custom-input" placeholder="Type custom texture…">
+                            </div>
                         </div>
-                        <div class="willingness-knob" id="willingness-knob" style="transform:rotate(-135deg);">
-                            <div class="knob-dot"></div>
-                        </div>
-                    </div>
-                    <div class="dial-value-display" id="dial-val-text">0</div>
-                    <p id="dial-desc" style="font-weight:600; color:var(--text-dark); font-size:1.1rem; margin-top:.5rem;">I am completely shut down to this feeling.</p>
-                    <input type="hidden" id="willingness-dial-hidden" value="0">
-                </div>
-
-                <textarea id="w5-dial-text" rows="2" placeholder="What would turning the dial up by just +1 look like right now?"></textarea>
-
-                <h3>Exercise 1: Physicalising the Emotion</h3>
-                <p>Instead of fighting a feeling, try studying it like a curious scientist. Think of something mildly stressful right now, and locate the physical feeling in your body.</p>
-
-                <div style="background:var(--surface); border:1.5px solid var(--border-light); padding:2rem; border-radius:var(--r); margin-bottom:2rem;">
-                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
-                        <div>
-                            <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">Where is it located?</label>
-                            <input type="text" id="p-loc" placeholder="e.g., tight chest, knot in stomach">
-                        </div>
-                        <div>
-                            <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a shape, what would it be?</label>
-                            <select id="p-shape" onchange="checkCustom('p-shape')">
-                                <option>A jagged rock</option>
-                                <option>A heavy sphere</option>
-                                <option>A dark cloud</option>
-                                <option>A tight band</option>
-                                <option>A fluttering bird</option>
-                                <option value="custom">Other (write my own)…</option>
-                            </select>
-                            <input type="text" id="p-shape-custom" class="custom-input" placeholder="Type custom shape…">
-                        </div>
-                        <div>
-                            <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a temperature?</label>
-                            <select id="p-temp" onchange="checkCustom('p-temp')">
-                                <option>Burning hot</option>
-                                <option>Ice cold</option>
-                                <option>Lukewarm</option>
-                                <option>Radiating heat</option>
-                                <option value="custom">Other (write my own)…</option>
-                            </select>
-                            <input type="text" id="p-temp-custom" class="custom-input" placeholder="Type custom temperature…">
-                        </div>
-                        <div>
-                            <label style="font-weight:600; display:block; margin-bottom:.5rem; color:var(--text-dark);">If it had a texture?</label>
-                            <select id="p-text" onchange="checkCustom('p-text')">
-                                <option>Sharp and prickly</option>
-                                <option>Heavy and dense</option>
-                                <option>Hollow and empty</option>
-                                <option>Slimy or sticky</option>
-                                <option value="custom">Other (write my own)…</option>
-                            </select>
-                            <input type="text" id="p-text-custom" class="custom-input" placeholder="Type custom texture…">
-                        </div>
-                    </div>
-                    <p style="margin-top:1.5rem; font-style:italic; color:var(--primary); margin-bottom:0;">Now, imagine your breath flowing directly into and around that object. You aren't trying to blow it away; you are just making a comfortable space in your body for it to exist. Let it be there.</p>
-                </div>
-
-                <h3>Exercise 2: The Self-Compassion Double Standard</h3>
-                <p>Doing this work is incredibly courageous. Yet, we often treat ourselves with a harshness we would never inflict on someone else. Before listening to the final audio, try this reflection.</p>
-
-                <div class="double-standard-grid">
-                    <div class="ds-col">
-                        <h4>A Friend Fails</h4>
-                        <p>Imagine a close friend you love comes to you in tears. They failed at something important or made a huge mistake. What tone of voice do you use? What exact words do you say to them?</p>
-                        <textarea id="w5-friend" rows="4" placeholder="I would say to them…"></textarea>
-                    </div>
-                    <div class="ds-col">
-                        <h4>You Fail</h4>
-                        <p>Now, imagine you make that exact same mistake. What is the tone of your internal voice? What exact words does your mind immediately say to you?</p>
-                        <textarea id="w5-self" rows="4" placeholder="My mind says to me…"></textarea>
+                        <p style="margin-top:2rem; font-style:italic; color:var(--primary); margin-bottom:0; font-size:1.05rem;">Now, imagine your breath flowing directly into and around that object. You aren't trying to blow it away; you are just making a comfortable space in your body for it to exist. Let it be there.</p>
                     </div>
                 </div>
 
-                <p>Look at the difference. Psychological flexibility requires treating yourself with the same kindness you offer others.</p>
+                <div class="step-page" data-page="4">
+                    <h3>Exercise 2: The Self-Compassion Double Standard</h3>
+                    <p>Doing this work is incredibly courageous. Yet, we often treat ourselves with a harshness we would never inflict on someone else. Before listening to the final audio, try this reflection.</p>
 
-                <div class="concept-box" style="background:#EAF4F1; border-color:var(--success);">
-                    <h4 style="color:var(--success);">Core Concept: Common Humanity</h4>
-                    <p>Dr. Kristin Neff teaches that self-compassion requires recognising <strong>Common Humanity</strong>. When we fail or hurt, our mind tells us: <em>"You are the only one struggling with this. Everyone else has it together."</em> This is a lie. Suffering, making mistakes, and feeling inadequate is the shared human experience. You are not alone in this feeling; it connects you to the rest of humanity.</p>
+                    <div class="double-standard-grid">
+                        <div class="ds-col">
+                            <h4>A Friend Fails</h4>
+                            <p>Imagine a close friend you love comes to you in tears. They failed at something important or made a huge mistake. What tone of voice do you use? What exact words do you say to them?</p>
+                            <textarea id="w5-friend" rows="5" placeholder="I would say to them…"></textarea>
+                        </div>
+                        <div class="ds-col">
+                            <h4>You Fail</h4>
+                            <p>Now, imagine you make that exact same mistake. What is the tone of your internal voice? What exact words does your mind immediately say to you?</p>
+                            <textarea id="w5-self" rows="5" placeholder="My mind says to me…"></textarea>
+                        </div>
+                    </div>
+
+                    <p>Look at the difference. Psychological flexibility requires treating yourself with the same kindness you offer others.</p>
+
+                    <div class="concept-box" style="background:var(--success-light); border-color:var(--success);">
+                        <h4 style="color:var(--success);">Core Concept: Common Humanity</h4>
+                        <p>Dr. Kristin Neff teaches that self-compassion requires recognising <strong>Common Humanity</strong>. When we fail or hurt, our mind tells us: <em>"You are the only one struggling with this. Everyone else has it together."</em> This is a lie. Suffering, making mistakes, and feeling inadequate is the shared human experience. You are not alone in this feeling; it connects you to the rest of humanity.</p>
+                    </div>
+
+                    <div class="media-placeholder">
+                        <h4>🎧 Guided Audio: Self-Compassion Break (6:36)</h4>
+                        <audio controls src="assets/audio-compassion.mp3">Your browser does not support audio.</audio>
+                    </div>
                 </div>
 
-                <div class="media-placeholder">
-                    <h4>🎧 Guided Audio: Self-Compassion Break (6:36)</h4>
-                    <audio controls src="assets/audio-compassion.mp3">Your browser does not support audio.</audio>
+                <div class="step-page" data-page="5">
+                    <div style="background:var(--primary); background-image:linear-gradient(145deg,var(--primary),var(--primary-mid)); padding:3.5rem 3rem; border-radius:var(--r-lg); margin-top:1rem; color:white; box-shadow:var(--shadow-lg);">
+                        <h3 style="color:white; margin-top:0; text-align:center; font-size:2.2rem;">The Final Reflection</h3>
+                        <p style="text-align:center; color:rgba(255,255,255,.85); margin-bottom:2rem;">As you conclude this program, reflect on your journey. What is the most vital insight you are taking with you?</p>
+                        <textarea id="w5-final" rows="8" placeholder="Take your time. Write a letter of commitment and compassion to yourself as you move forward…" style="background:rgba(255,255,255,.97); color:var(--text-body); border:none; border-radius:var(--r); padding:1.5rem;"></textarea>
+                    </div>
+
+                    <p style="text-align:center; margin-top:3.5rem; font-style:italic; font-size:1.15rem; color:var(--text-muted);">Thank you for dedicating this time to your wellbeing. Values are a compass, not a destination. Whenever you get lost, just check your compass, drop the rope, and take one step forward.</p>
+
+                    <button style="background:transparent; color:var(--text-faint); border:1px solid var(--border); padding:1.1rem; border-radius:var(--r-sm); width:100%; margin-top:4rem; cursor:pointer; font-weight:600; font-family:'Jost',sans-serif; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; transition:all .2s;" onmouseover="this.style.borderColor='var(--error)';this.style.color='var(--error)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-faint)';" onclick="resetProgress()">Erase All Data &amp; Restart Program</button>
                 </div>
-
-                <div style="background:var(--primary); background-image:linear-gradient(145deg,var(--primary),var(--primary-mid)); padding:3rem; border-radius:var(--r-lg); margin-top:4rem; color:white; box-shadow:var(--shadow-lg);">
-                    <h3 style="color:white; margin-top:0; text-align:center; font-size:2rem;">The Final Reflection</h3>
-                    <p style="text-align:center; color:rgba(255,255,255,.8); margin-bottom:1.5rem;">As you conclude this program, reflect on your journey. What is the most vital insight you are taking with you?</p>
-                    <textarea id="w5-final" rows="8" placeholder="Take your time. Write a letter of commitment and compassion to yourself as you move forward…" style="background:rgba(255,255,255,.94); color:var(--text-body); border:none;"></textarea>
+                
+                <div class="pagination-bar">
+                    <button class="btn-page" onclick="changePage(5, -1)" id="prev-btn-5" disabled>Previous</button>
+                    <div class="page-dots" id="dots-5"></div>
+                    <button class="btn-page" onclick="changePage(5, 1)" id="next-btn-5">Next</button>
                 </div>
-
-                <p style="text-align:center; margin-top:3rem; font-style:italic; font-size:1.15rem; color:var(--text-muted);">Thank you for dedicating this time to your wellbeing. Values are a compass, not a destination. Whenever you get lost, just check your compass, drop the rope, and take one step forward.</p>
-
-                <button style="background:transparent; color:var(--text-muted); border:1.5px solid var(--border); padding:1.1rem; border-radius:var(--r-sm); width:100%; margin-top:4rem; cursor:pointer; font-weight:600; font-family:'Jost',sans-serif; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; transition:all .2s;" onmouseover="this.style.borderColor='var(--error)';this.style.color='var(--error)';" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--text-muted)';" onclick="resetProgress()">Erase All Data &amp; Restart Program</button>
             </section>
 
         </main>
@@ -1893,6 +1891,10 @@
         let unlockedLevel = parseInt(localStorage.getItem('act_level_v5')) || 0;
         let currentLevel  = 0;
         let saveTimeout;
+        
+        // Pagination state tracking
+        const pageCounts = {0: 2, 1: 5, 2: 5, 3: 5, 4: 4, 5: 5};
+        let currentPages = {0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1};
 
         function init() {
             renderSidebar();
@@ -1900,6 +1902,7 @@
             loadFormData();
             attachAutoSaveListeners();
             setupDial();
+            initPaginationDots();
             showModule(unlockedLevel === 0 ? 0 : unlockedLevel);
             toggleStruggle();
             updateChess('white');
@@ -1907,6 +1910,73 @@
             populateWeek2Values();
             ['p-shape','p-temp','p-text'].forEach(id => checkCustom(id));
         }
+
+        // ---------- PAGINATION LOGIC ----------
+        function initPaginationDots() {
+            Object.keys(pageCounts).forEach(modId => {
+                const dotsContainer = document.getElementById('dots-' + modId);
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let i = 0; i < pageCounts[modId]; i++) {
+                        const dot = document.createElement('div');
+                        dot.className = 'page-dot' + (i === 0 ? ' active' : '');
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+            });
+        }
+
+        function changePage(modId, delta) {
+            const newPage = currentPages[modId] + delta;
+            if (newPage >= 1 && newPage <= pageCounts[modId]) {
+                currentPages[modId] = newPage;
+                updatePageView(modId);
+            }
+        }
+
+        function updatePageView(modId) {
+            const mod = document.getElementById('mod-' + modId);
+            const pages = mod.querySelectorAll('.step-page');
+            
+            pages.forEach(p => p.classList.remove('active'));
+            
+            const activePage = mod.querySelector(`.step-page[data-page="${currentPages[modId]}"]`);
+            if (activePage) activePage.classList.add('active');
+
+            // Scroll gently to top of content area on page change
+            const contentArea = document.querySelector('.content-area');
+            const headerOffset = 40;
+            const elementPosition = contentArea.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+            // Update Pagination Buttons
+            const prevBtn = document.getElementById('prev-btn-' + modId);
+            const nextBtn = document.getElementById('next-btn-' + modId);
+
+            if (prevBtn) prevBtn.disabled = currentPages[modId] === 1;
+            if (nextBtn) {
+                if (currentPages[modId] === pageCounts[modId]) {
+                    nextBtn.style.display = 'none'; // Hide next button if on last page
+                } else {
+                    nextBtn.style.display = 'flex';
+                    nextBtn.disabled = false;
+                }
+            }
+
+            // Update Dots
+            const dots = document.getElementById('dots-' + modId);
+            if (dots) {
+                Array.from(dots.children).forEach((dot, index) => {
+                    if(index + 1 === currentPages[modId]) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+        }
+        // --------------------------------------
 
         function renderSidebar() {
             const sidebar = document.getElementById('nav-sidebar');
@@ -1940,7 +2010,11 @@
             document.getElementById('mod-' + id).classList.add('active');
             currentLevel = id;
             if (id === 2) populateWeek2Values();
+            
+            // Re-render the pagination state for the newly opened module
+            updatePageView(id);
             renderSidebar();
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -2123,7 +2197,7 @@
             const t = document.getElementById('save-toast');
             t.style.opacity   = '1';
             t.style.transform = 'translateY(0)';
-            setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(8px)'; }, 2200);
+            setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(12px)'; }, 2200);
         }
 
         window.onload = init;
